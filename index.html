@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Wendy Salomé Estrada | Desarrolladora de Software</title>
+    <title>CV - Wendy Salomé Estrada | Software Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        /* Variables de colores */
         :root {
             --primary-color: #5e35b1;
             --secondary-color: #9575cd;
@@ -17,7 +17,6 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
@@ -29,8 +28,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--light-bg);
-            padding: 0;
-            margin: 0;
+            padding: 20px;
         }
         
         .container {
@@ -39,9 +37,9 @@
             padding: 20px;
             background-color: var(--white);
             box-shadow: var(--shadow);
+            border-radius: 8px;
         }
         
-        /* Encabezado */
         header {
             display: flex;
             flex-direction: column;
@@ -79,7 +77,6 @@
             gap: 8px;
         }
         
-        /* Secciones */
         section {
             margin-bottom: 30px;
         }
@@ -98,7 +95,6 @@
             color: var(--secondary-color);
         }
         
-        /* Perfil */
         .profile {
             background-color: var(--light-bg);
             padding: 20px;
@@ -106,7 +102,6 @@
             margin-bottom: 25px;
         }
         
-        /* Educación */
         .education-item, .project-item {
             margin-bottom: 20px;
             padding: 15px;
@@ -125,7 +120,6 @@
             margin-bottom: 10px;
         }
         
-        /* Habilidades */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -160,7 +154,6 @@
             font-size: 0.9rem;
         }
         
-        /* Intereses */
         .interests {
             display: flex;
             flex-wrap: wrap;
@@ -176,12 +169,12 @@
             gap: 8px;
         }
         
-        /* Botones */
         .buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin: 30px 0;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -193,6 +186,8 @@
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
         
         .btn-primary {
@@ -210,7 +205,6 @@
             box-shadow: var(--shadow);
         }
         
-        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
@@ -219,7 +213,13 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive */
+        .language-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
         @media (max-width: 768px) {
             .contact-info {
                 flex-direction: column;
@@ -235,9 +235,13 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .language-controls {
+                flex-direction: column;
+                align-items: center;
+            }
         }
         
-        /* Estilos para impresión */
         @media print {
             body {
                 background-color: white;
@@ -248,7 +252,7 @@
                 padding: 0;
             }
             
-            .btn {
+            .btn, .language-controls {
                 display: none;
             }
             
@@ -260,11 +264,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="cv-content">
+        <div class="language-controls">
+            <button id="btn-es" class="btn btn-primary">
+                <i class="fas fa-language"></i> Español
+            </button>
+            <button id="btn-en" class="btn btn-primary">
+                <i class="fas fa-language"></i> English
+            </button>
+        </div>
+        
         <header>
             <div class="profile-info">
-                <h1>WENDY SALOMÉ ESTRADA</h1>
-                <p class="title">Ingeniera en Desarrollo y Gestión de Software</p>
+                <h1 data-es="WENDY SALOMÉ ESTRADA" data-en="WENDY SALOMÉ ESTRADA">WENDY SALOMÉ ESTRADA</h1>
+                <p class="title" data-es="Ingeniera en Desarrollo y Gestión de Software" data-en="Software Development and Management Engineer">Ingeniera en Desarrollo y Gestión de Software</p>
             </div>
             <div class="contact-info">
                 <div class="contact-item">
@@ -279,30 +292,30 @@
         </header>
         
         <section class="profile">
-            <h2><i class="fas fa-user"></i> Perfil</h2>
-            <p>Desarrolladora con formación técnica y universitaria en desarrollo de software. Experiencia práctica en proyectos académicos y personales, incluyendo desarrollo web, aplicaciones móviles, integraciones API, gestión de proyectos y bases de datos. Proactiva, con capacidad de aprendizaje rápido y adaptación a nuevas tecnologías.</p>
+            <h2><i class="fas fa-user"></i> <span data-es="Perfil" data-en="Profile">Perfil</span></h2>
+            <p data-es="Desarrolladora con formación técnica y universitaria en desarrollo de software. Experiencia práctica en proyectos académicos y personales, incluyendo desarrollo web, aplicaciones móviles, integraciones API, gestión de proyectos y bases de datos. Proactiva, con capacidad de aprendizaje rápido y adaptación a nuevas tecnologías." data-en="Developer with technical and university training in software development. Practical experience in academic and personal projects, including web development, mobile applications, API integrations, project management and databases. Proactive, with fast learning ability and adaptation to new technologies.">Desarrolladora con formación técnica y universitaria en desarrollo de software. Experiencia práctica en proyectos académicos y personales, incluyendo desarrollo web, aplicaciones móviles, integraciones API, gestión de proyectos y bases de datos. Proactiva, con capacidad de aprendizaje rápido y adaptación a nuevas tecnologías.</p>
         </section>
         
         <section class="education">
-            <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
+            <h2><i class="fas fa-graduation-cap"></i> <span data-es="Educación" data-en="Education">Educación</span></h2>
             <div class="education-item">
-                <h3>Ingeniería en Desarrollo y Gestión de Software</h3>
-                <p class="date">Título en trámite</p>
+                <h3 data-es="Ingeniería en Desarrollo y Gestión de Software" data-en="Software Development and Management Engineering">Ingeniería en Desarrollo y Gestión de Software</h3>
+                <p class="date" data-es="Título en trámite" data-en="Degree in process">Título en trámite</p>
             </div>
             <div class="education-item">
-                <h3>Técnico Profesional en Soporte y Mantenimiento de Equipo de Cómputo</h3>
-                <p class="date">Título y cédula profesional</p>
+                <h3 data-es="Técnico Profesional en Soporte y Mantenimiento de Equipo de Cómputo" data-en="Professional Technician in Computer Equipment Support and Maintenance">Técnico Profesional en Soporte y Mantenimiento de Equipo de Cómputo</h3>
+                <p class="date" data-es="Título y cédula profesional" data-en="Title and professional license">Título y cédula profesional</p>
             </div>
             <div class="education-item">
-                <h3>TSU en Desarrollo de Software Multiplataforma</h3>
+                <h3 data-es="TSU en Desarrollo de Software Multiplataforma" data-en>TSU in Multiplatform Software Development">TSU en Desarrollo de Software Multiplataforma</h3>
             </div>
         </section>
         
         <section class="skills">
-            <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
+            <h2><i class="fas fa-code"></i> <span data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</span></h2>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>Lenguajes de Programación</h3>
+                    <h3 data-es="Lenguajes de Programación" data-en="Programming Languages">Lenguajes de Programación</h3>
                     <div class="skills-list">
                         <span class="skill">HTML</span>
                         <span class="skill">CSS</span>
@@ -313,7 +326,7 @@
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Frameworks & Librerías</h3>
+                    <h3 data-es="Frameworks & Librerías" data-en="Frameworks & Libraries">Frameworks & Librerías</h3>
                     <div class="skills-list">
                         <span class="skill">Laravel</span>
                         <span class="skill">Node.js</span>
@@ -323,7 +336,7 @@
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Bases de Datos & Herramientas</h3>
+                    <h3 data-es="Bases de Datos & Herramientas" data-en="Databases & Tools">Bases de Datos & Herramientas</h3>
                     <div class="skills-list">
                         <span class="skill">MySQL</span>
                         <span class="skill">MongoDB</span>
@@ -339,84 +352,114 @@
         </section>
         
         <section class="projects">
-            <h2><i class="fas fa-briefcase"></i> Proyectos</h2>
+            <h2><i class="fas fa-briefcase"></i> <span data-es="Proyectos" data-en="Projects">Proyectos</span></h2>
             <div class="project-item">
-                <h3>Integración Jira ⇄ ITSM</h3>
-                <p>Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
-                <p><strong>Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
+                <h3 data-es="Integración Jira ⇄ ITSM" data-en="Jira ⇄ ITSM Integration">Integración Jira ⇄ ITSM</h3>
+                <p data-es="Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados." data-en="Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with duplicate handling.">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
+                <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
             </div>
             
             <div class="project-item">
-                <h3>Aplicación móvil tipo Uber para personas con discapacidad</h3>
-                <p>Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
-                <p><strong>Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
+                <h3 data-es="Aplicación móvil tipo Uber para personas con discapacidad" data-en="Uber-like mobile app for people with disabilities">Aplicación móvil tipo Uber para personas con discapacidad</h3>
+                <p data-es="Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real." data-en="Development of a mobile app with geolocation, user registration and real-time communication.">Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
+                <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
             </div>
             
             <div class="project-item">
-                <h3>Generación de sistema web/Citas médicas</h3>
-                <p>Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
+                <h3 data-es="Generación de sistema web/Citas médicas" data-en="Web system development/Medical appointments">Generación de sistema web/Citas médicas</h3>
+                <p data-es="Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos." data-en="Online store for medical appointments with frontend (HTML/CSS/JS) and backend (PHP + MySQL). User management systems and bookings integrated with database.">Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
             </div>
             
             <div class="project-item">
-                <h3>Portal inmobiliario (Proyecto escolar)</h3>
-                <p>Portal con CRUD de inmuebles y panel administrativo.</p>
-                <p><strong>Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
+                <h3 data-es="Portal inmobiliario (Proyecto escolar)" data-en="Real estate portal (School project)">Portal inmobiliario (Proyecto escolar)</h3>
+                <p data-es="Portal con CRUD de inmuebles y panel administrativo." data-en="Portal with property CRUD and administrative panel.">Portal con CRUD de inmuebles y panel administrativo.</p>
+                <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
             </div>
             
             <div class="project-item">
-                <h3>Integración WhatsApp vía API REST</h3>
-                <p>Diseño de endpoints y flujo para envío/recepción de mensajes y automatización de notificaciones en ITSM.</p>
+                <h3 data-es="Integración WhatsApp vía API REST" data-en="WhatsApp integration via REST API">Integración WhatsApp vía API REST</h3>
+                <p data-es="Diseño de endpoints y flujo para envío/recepción de mensajes y automatización de notificaciones en ITSM." data-en="Endpoint design and flow for sending/receiving messages and automation of notifications in ITSM.">Diseño de endpoints y flujo para envío/recepción de mensajes y automatización de notificaciones en ITSM.</p>
             </div>
             
             <div class="project-item">
-                <h3>Web de control de cero desperdicio</h3>
-                <p>Dashboard y formularios para registro y visualización de métricas relacionadas con desperdicios.</p>
+                <h3 data-es="Web de control de cero desperdicio" data-en="Zero waste control web">Web de control de cero desperdicio</h3>
+                <p data-es="Dashboard y formularios para registro y visualización de métricas relacionadas con desperdicios." data-en="Dashboard and forms for registration and visualization of waste-related metrics.">Dashboard y formularios para registro y visualización de métricas relacionadas con desperdicios.</p>
             </div>
             
             <div class="project-item">
-                <h3>Videojuego (Proyecto escolar)</h3>
-                <p>Desarrollo y publicación de videojuego utilizando Unity (C#).</p>
+                <h3 data-es="Videojuego (Proyecto escolar)" data-en="Video game (School project)">Videojuego (Proyecto escolar)</h3>
+                <p data-es="Desarrollo y publicación de videojuego utilizando Unity (C#)." data-en="Development and publication of a video game using Unity (C#).">Desarrollo y publicación de videojuego utilizando Unity (C#).</p>
             </div>
         </section>
         
         <section class="interests-section">
-            <h2><i class="fas fa-heart"></i> Intereses</h2>
+            <h2><i class="fas fa-heart"></i> <span data-es="Intereses" data-en="Interests">Intereses</span></h2>
             <div class="interests">
                 <div class="interest">
                     <i class="fas fa-music"></i>
-                    <span>Música</span>
+                    <span data-es="Música" data-en="Music">Música</span>
                 </div>
                 <div class="interest">
                     <i class="fas fa-book"></i>
-                    <span>Lectura</span>
+                    <span data-es="Lectura" data-en="Reading">Lectura</span>
                 </div>
                 <div class="interest">
                     <i class="fas fa-laptop-code"></i>
-                    <span>Tecnología</span>
+                    <span data-es="Tecnología" data-en="Technology">Tecnología</span>
                 </div>
                 <div class="interest">
                     <i class="fas fa-gamepad"></i>
-                    <span>Videojuegos</span>
+                    <span data-es="Videojuegos" data-en="Video Games">Videojuegos</span>
                 </div>
                 <div class="interest">
                     <i class="fas fa-paint-brush"></i>
-                    <span>Diseño</span>
+                    <span data-es="Diseño" data-en="Design">Diseño</span>
                 </div>
             </div>
         </section>
         
         <div class="buttons">
-            <a href="javascript:window.print()" class="btn btn-primary">
-                <i class="fas fa-print"></i> Imprimir / PDF
-            </a>
+            <button id="btn-print" class="btn btn-primary">
+                <i class="fas fa-print"></i> <span data-es="Imprimir / PDF" data-en="Print / PDF">Imprimir / PDF</span>
+            </button>
             <a href="https://github.com/WendySE20" class="btn btn-secondary">
-                <i class="fab fa-github"></i> Ver GitHub
+                <i class="fab fa-github"></i> <span data-es="Ver GitHub" data-en="View GitHub">Ver GitHub</span>
             </a>
         </div>
         
         <footer>
-            <p>© 2023 Wendy Salomé Estrada - Desarrolladora de Software</p>
+            <p>© 2023 Wendy Salomé Estrada - <span data-es="Desarrolladora de Software" data-en="Software Developer">Desarrolladora de Software</span></p>
         </footer>
     </div>
+
+    <script>
+        // Función para cambiar el idioma
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-es], [data-en]').forEach(element => {
+                if (element.hasAttribute(`data-${lang}`)) {
+                    const text = element.getAttribute(`data-${lang}`);
+                    if (text) element.textContent = text;
+                }
+            });
+        }
+
+        // Event listeners para los botones de idioma
+        document.getElementById('btn-es').addEventListener('click', () => changeLanguage('es'));
+        document.getElementById('btn-en').addEventListener('click', () => changeLanguage('en'));
+
+        // Función para generar PDF
+        document.getElementById('btn-print').addEventListener('click', () => {
+            const element = document.getElementById('cv-content');
+            const opt = {
+                margin: 10,
+                filename: 'Wendy_Salome_Estrada_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().set(opt).from(element).save();
+        });
+    </script>
 </body>
 </html>
