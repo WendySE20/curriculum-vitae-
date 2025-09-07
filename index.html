@@ -6,8 +6,6 @@
     <title>CV - Wendy Salome Estrada | Desarrolladora Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
             --primary-color: #4a00e0;
@@ -679,10 +677,7 @@
             </section>
             
             <div class="buttons">
-                <button id="btn-download" class="btn btn-primary">
-                    <i class="fas fa-download"></i> <span id="download-button-text">Descargar PDF</span>
-                </button>
-                <button id="btn-print" class="btn btn-secondary">
+                <button id="btn-print" class="btn btn-primary">
                     <i class="fas fa-print"></i> <span id="print-button-text">Imprimir</span>
                 </button>
                 <a href="https://github.com/WendySE20" class="btn btn-secondary" target="_blank">
@@ -743,7 +738,6 @@
                 'interest-4': 'Videojuegos',
                 'interest-5': 'Diseño',
                 'interest-6': 'Inteligencia Artificial',
-                'download-button-text': 'Descargar PDF',
                 'print-button-text': 'Imprimir',
                 'footer-text': 'Desarrolladora Full Stack'
             },
@@ -791,7 +785,6 @@
                 'interest-4': 'Video Games',
                 'interest-5': 'Design',
                 'interest-6': 'Artificial Intelligence',
-                'download-button-text': 'Download PDF',
                 'print-button-text': 'Print',
                 'footer-text': 'Full Stack Developer'
             }
@@ -827,54 +820,6 @@
             }, duration);
         }
 
-        // Función para descargar PDF
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            
-            // Mostrar notificación de carga
-            showNotification('Generando PDF...');
-            
-            // Ocultar controles que no deben aparecer en el PDF
-            const languageControls = document.querySelector('.language-controls');
-            const buttons = document.querySelector('.buttons');
-            const originalLanguageDisplay = languageControls.style.display;
-            const originalButtonsDisplay = buttons.style.display;
-            
-            languageControls.style.display = 'none';
-            buttons.style.display = 'none';
-            
-            // Capturar el contenido del CV
-            html2canvas(document.getElementById('cv-content')).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgWidth = 210; // A4 width in mm
-                const pageHeight = 297; // A4 height in mm
-                const imgHeight = canvas.height * imgWidth / canvas.width;
-                let heightLeft = imgHeight;
-                let position = 0;
-
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-
-                // Add additional pages if needed
-                while (heightLeft >= 0) {
-                    position = heightLeft - imgHeight;
-                    pdf.addPage();
-                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
-                }
-
-                // Descargar el PDF
-                pdf.save('CV_Wendy_Salome_Estrada.pdf');
-                
-                // Restaurar controles
-                languageControls.style.display = originalLanguageDisplay;
-                buttons.style.display = originalButtonsDisplay;
-                
-                showNotification('PDF descargado correctamente');
-            });
-        }
-
         // Función para imprimir directamente
         function printCV() {
             // Ocultar controles que no deben aparecer en la impresión
@@ -897,7 +842,6 @@
         }
 
         // Event Listeners
-        document.getElementById('btn-download').addEventListener('click', downloadPDF);
         document.getElementById('btn-print').addEventListener('click', printCV);
 
         // Botones de idioma
