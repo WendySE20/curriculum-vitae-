@@ -581,20 +581,61 @@
             }
         }
 
-        /* Estilos para asegurar que el PDF se vea igual que el HTML */
-        .pdf-container {
-            width: 100%;
-            background: white;
-            box-shadow: var(--card-shadow);
-            border-radius: 15px;
-            overflow: hidden;
+        /* Estilos específicos para PDF */
+        .pdf-mode {
+            width: 100% !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
-
-        /* Versión alternativa para PDF con colores sólidos */
+        
         .pdf-mode header {
             background: #4a00e0 !important;
         }
         
+        .pdf-mode header::before {
+            display: none !important;
+        }
+        
+        .pdf-mode .btn-primary,
+        .pdf-mode .preview-btn-download,
+        .pdf-mode .skill {
+            background: #4a00e0 !important;
+        }
+        
+        .pdf-mode .btn-secondary {
+            background: #ff6b6b !important;
+        }
+        
+        .pdf-mode .contact-item a:hover {
+            color: white !important;
+        }
+        
+        .pdf-mode .education-item:hover,
+        .pdf-mode .project-item:hover,
+        .pdf-mode .skill-category:hover,
+        .pdf-mode .interest:hover,
+        .pdf-mode section:hover {
+            transform: none !important;
+            background: #f8f9fa !important;
+        }
+        
+        .pdf-mode .skill:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        
+        .pdf-mode .btn::before {
+            display: none !important;
+        }
+        
+        .pdf-mode .language-controls,
+        .pdf-mode .buttons {
+            display: none !important;
+        }
+        
+        /* Asegurar que los gradientes se vean como colores sólidos en PDF */
         .pdf-mode .btn-primary,
         .pdf-mode .preview-btn-download {
             background: #4a00e0 !important;
@@ -604,12 +645,13 @@
             background: #8e2de2 !important;
         }
         
-        .pdf-mode .skill:hover {
-            background: #7d1dd1 !important;
-        }
-        
         .pdf-mode .interest:hover {
             background: #8e2de2 !important;
+        }
+        
+        .pdf-mode body {
+            background: white !important;
+            padding: 0 !important;
         }
     </style>
 </head>
@@ -783,7 +825,7 @@
                     
                     <div class="project-item">
                         <h3>Sistema de Monitoreo de Servidores en Tiempo Real</h3>
-                        <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
+                        <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento và reportes automáticos.</p>
                         <p><strong>Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
                     </div>
                     
