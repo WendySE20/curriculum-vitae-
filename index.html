@@ -6,7 +6,6 @@
     <title>CV - Wendy Salome Estrada | Desarrolladora Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --primary-color: #4a00e0;
@@ -520,6 +519,63 @@
             opacity: 1;
         }
         
+        /* Estilos para impresión */
+        @media print {
+            body, html {
+                background: white !important;
+                width: 100% !important;
+                height: auto !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            
+            .language-controls, .buttons, .preview-modal {
+                display: none !important;
+            }
+            
+            header {
+                background: #4a00e0 !important;
+            }
+            
+            header::before {
+                display: none !important;
+            }
+            
+            .skill {
+                background: #8e2de2 !important;
+            }
+            
+            .btn::before, .btn:hover::before {
+                display: none !important;
+            }
+            
+            section:hover, .education-item:hover, .project-item:hover, 
+            .skill-category:hover, .interest:hover, .btn:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            a {
+                color: #0000EE !important;
+                text-decoration: underline !important;
+            }
+            
+            .contact-item a {
+                color: white !important;
+            }
+            
+            footer {
+                page-break-after: always;
+            }
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -579,79 +635,6 @@
                 width: 100%;
                 justify-content: center;
             }
-        }
-
-        /* Estilos específicos para PDF */
-        .pdf-mode {
-            width: 100% !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        
-        .pdf-mode header {
-            background: #4a00e0 !important;
-        }
-        
-        .pdf-mode header::before {
-            display: none !important;
-        }
-        
-        .pdf-mode .btn-primary,
-        .pdf-mode .preview-btn-download,
-        .pdf-mode .skill {
-            background: #4a00e0 !important;
-        }
-        
-        .pdf-mode .btn-secondary {
-            background: #ff6b6b !important;
-        }
-        
-        .pdf-mode .contact-item a:hover {
-            color: white !important;
-        }
-        
-        .pdf-mode .education-item:hover,
-        .pdf-mode .project-item:hover,
-        .pdf-mode .skill-category:hover,
-        .pdf-mode .interest:hover,
-        .pdf-mode section:hover {
-            transform: none !important;
-            background: #f8f9fa !important;
-        }
-        
-        .pdf-mode .skill:hover {
-            transform: none !important;
-            box-shadow: none !important;
-        }
-        
-        .pdf-mode .btn::before {
-            display: none !important;
-        }
-        
-        .pdf-mode .language-controls,
-        .pdf-mode .buttons {
-            display: none !important;
-        }
-        
-        /* Asegurar que los gradientes se vean como colores sólidos en PDF */
-        .pdf-mode .btn-primary,
-        .pdf-mode .preview-btn-download {
-            background: #4a00e0 !important;
-        }
-        
-        .pdf-mode .skill {
-            background: #8e2de2 !important;
-        }
-        
-        .pdf-mode .interest:hover {
-            background: #8e2de2 !important;
-        }
-        
-        .pdf-mode body {
-            background: white !important;
-            padding: 0 !important;
         }
     </style>
 </head>
@@ -825,7 +808,7 @@
                     
                     <div class="project-item">
                         <h3>Sistema de Monitoreo de Servidores en Tiempo Real</h3>
-                        <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento và reportes automáticos.</p>
+                        <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
                         <p><strong>Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
                     </div>
                     
@@ -876,6 +859,9 @@
                 <button id="btn-preview" class="btn btn-primary">
                     <i class="fas fa-eye"></i> Vista Previa PDF
                 </button>
+                <button id="btn-print" class="btn btn-secondary">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
                 <a href="https://github.com/WendySE20" class="btn btn-secondary" target="_blank">
                     <i class="fab fa-github"></i> Ver GitHub
                 </a>
@@ -901,21 +887,13 @@
             }, duration);
         }
 
-        // Variables globales
-        let currentPdfBlob = null;
-        let currentPdfUrl = null;
-
-        // Función para generar el PDF y mostrar la previsualización
-        async function generatePdfPreview() {
-            const element = document.getElementById('cv-content');
+        // Función para generar vista previa del PDF
+        function generatePdfPreview() {
             const modal = document.getElementById('previewModal');
-            const spinner = document.getElementById('pdfSpinner');
             const iframe = document.getElementById('pdfPreview');
             
-            // Mostrar modal y spinner
+            // Mostrar modal
             modal.classList.add('active');
-            spinner.style.display = 'flex';
-            iframe.style.display = 'none';
             
             // Ocultar controles que no deben aparecer en el PDF
             const languageControls = document.querySelector('.language-controls');
@@ -927,140 +905,222 @@
             buttons.style.display = 'none';
             
             // Clonar el elemento para modificar estilos sin afectar la visualización principal
-            const clonedElement = element.cloneNode(true);
+            const clonedElement = document.getElementById('cv-content').cloneNode(true);
             clonedElement.id = 'cv-content-clone';
-            clonedElement.classList.add('pdf-mode');
             document.body.appendChild(clonedElement);
             clonedElement.style.position = 'absolute';
             clonedElement.style.left = '-9999px';
             
-            // Configuración optimizada para html2pdf
-            const opt = {
-                margin: [5, 5, 5, 5],
-                filename: 'CV_Wendy_Salome_Estrada.pdf',
-                image: { 
-                    type: 'jpeg', 
-                    quality: 1.0  // Máxima calidad
-                },
-                html2canvas: { 
-                    scale: 2, // Resolución alta
-                    useCORS: true,
-                    logging: false,
-                    letterRendering: true,
-                    backgroundColor: '#FFFFFF',
-                    onclone: function(clonedDoc) {
-                        // Asegurar que todos los estilos se apliquen correctamente
-                        const clonedContainer = clonedDoc.getElementById('cv-content-clone');
-                        if (clonedContainer) {
-                            clonedContainer.style.width = '100%';
-                            clonedContainer.style.boxShadow = 'none';
-                            clonedContainer.style.borderRadius = '0';
-                            clonedContainer.style.margin = '0';
-                            
-                            // Forzar colores sólidos para evitar problemas de renderizado
-                            const header = clonedContainer.querySelector('header');
-                            if (header) {
-                                header.style.background = '#4a00e0';
+            // Crear HTML para la vista previa
+            const printContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>CV - Wendy Salome Estrada</title>
+                    <meta charset="UTF-8">
+                    <style>
+                        body {
+                            font-family: 'Poppins', sans-serif;
+                            line-height: 1.6;
+                            color: #333;
+                            background: white;
+                            padding: 20px;
+                            margin: 0;
+                        }
+                        
+                        .container {
+                            max-width: 100%;
+                            background-color: white;
+                            border-radius: 0;
+                            box-shadow: none;
+                            margin: 0;
+                        }
+                        
+                        header {
+                            background: #4a00e0 !important;
+                            color: white;
+                            padding: 30px;
+                            text-align: center;
+                        }
+                        
+                        header::before {
+                            display: none;
+                        }
+                        
+                        .profile-info h1 {
+                            font-size: 2.2rem;
+                            margin-bottom: 10px;
+                        }
+                        
+                        .specialty {
+                            font-size: 1.2rem;
+                            color: rgba(255, 255, 255, 0.9);
+                        }
+                        
+                        .contact-info {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            gap: 20px;
+                            margin-top: 20px;
+                        }
+                        
+                        .contact-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                        }
+                        
+                        .contact-item a {
+                            color: white;
+                            text-decoration: none;
+                        }
+                        
+                        .content {
+                            padding: 30px;
+                        }
+                        
+                        section {
+                            margin-bottom: 30px;
+                            padding: 20px;
+                            background: #f8f9fa;
+                            border-radius: 8px;
+                            page-break-inside: avoid;
+                        }
+                        
+                        h2 {
+                            color: #4a00e0;
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #8e2de2;
+                            margin-bottom: 20px;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                        
+                        .education-grid, .projects-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                            gap: 15px;
+                        }
+                        
+                        .education-item, .project-item {
+                            padding: 15px;
+                            background: white;
+                            border-radius: 8px;
+                            border-left: 4px solid #8e2de2;
+                        }
+                        
+                        .skills-container {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                            gap: 15px;
+                        }
+                        
+                        .skill-category {
+                            padding: 15px;
+                            background: white;
+                            border-radius: 8px;
+                        }
+                        
+                        .skills-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            justify-content: center;
+                        }
+                        
+                        .skill {
+                            background: #8e2de2;
+                            color: white;
+                            padding: 6px 15px;
+                            border-radius: 20px;
+                            font-size: 0.85rem;
+                        }
+                        
+                        .interests {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 12px;
+                            justify-content: center;
+                        }
+                        
+                        .interest {
+                            background: #f8f9fa;
+                            padding: 10px 20px;
+                            border-radius: 20px;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                        }
+                        
+                        footer {
+                            text-align: center;
+                            padding: 20px;
+                            margin-top: 20px;
+                            color: #8e2de2;
+                            font-size: 0.85rem;
+                            background: #f8f9fa;
+                        }
+                        
+                        @media print {
+                            body {
+                                padding: 0;
+                                margin: 0;
                             }
                             
-                            const skills = clonedContainer.querySelectorAll('.skill');
-                            skills.forEach(skill => {
-                                skill.style.background = '#8e2de2';
-                            });
-                            
-                            // Ocultar elementos que no deben aparecer
-                            const languageControls = clonedContainer.querySelector('.language-controls');
-                            const buttons = clonedContainer.querySelector('.buttons');
-                            if (languageControls) languageControls.style.display = 'none';
-                            if (buttons) buttons.style.display = 'none';
+                            .container {
+                                box-shadow: none;
+                                border-radius: 0;
+                            }
                         }
-                    }
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait',
-                    compress: false // Sin compresión para máxima calidad
-                }
-            };
+                    </style>
+                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                </head>
+                <body>
+                    ${clonedElement.innerHTML}
+                </body>
+                </html>
+            `;
             
-            try {
-                // Generar PDF como blob
-                const pdfBlob = await html2pdf().set(opt).from(clonedElement).outputPdf('blob');
-                
-                // Crear URL para el blob
-                const pdfUrl = URL.createObjectURL(pdfBlob);
-                
-                // Guardar para uso posterior
-                currentPdfBlob = pdfBlob;
-                if (currentPdfUrl) {
-                    URL.revokeObjectURL(currentPdfUrl);
-                }
-                currentPdfUrl = pdfUrl;
-                
-                // Cargar PDF en el iframe
-                iframe.onload = function() {
-                    spinner.style.display = 'none';
-                    iframe.style.display = 'block';
-                    
-                    // Restaurar controles después de generar el PDF
-                    languageControls.style.display = originalLanguageDisplay;
-                    buttons.style.display = originalButtonsDisplay;
-                    
-                    // Eliminar el elemento clonado
-                    document.body.removeChild(clonedElement);
-                };
-                iframe.src = pdfUrl;
-                
-            } catch (error) {
-                console.error('Error generating PDF:', error);
-                modal.classList.remove('active');
-                
-                // Restaurar controles en caso de error
+            // Limpiar
+            document.body.removeChild(clonedElement);
+            languageControls.style.display = originalLanguageDisplay;
+            buttons.style.display = originalButtonsDisplay;
+            
+            // Crear blob y cargar en el iframe
+            const blob = new Blob([printContent], { type: 'text/html' });
+            iframe.src = URL.createObjectURL(blob);
+            iframe.style.display = 'block';
+            
+            showNotification('Vista previa generada correctamente');
+        }
+
+        // Función para imprimir directamente
+        function printCV() {
+            // Ocultar controles que no deben aparecer en la impresión
+            const languageControls = document.querySelector('.language-controls');
+            const buttons = document.querySelector('.buttons');
+            const originalLanguageDisplay = languageControls.style.display;
+            const originalButtonsDisplay = buttons.style.display;
+            
+            languageControls.style.display = 'none';
+            buttons.style.display = 'none';
+            
+            // Imprimir
+            window.print();
+            
+            // Restaurar controles
+            setTimeout(() => {
                 languageControls.style.display = originalLanguageDisplay;
                 buttons.style.display = originalButtonsDisplay;
-                
-                // Eliminar el elemento clonado en caso de error
-                if (document.getElementById('cv-content-clone')) {
-                    document.body.removeChild(clonedElement);
-                }
-                
-                showNotification('Error al generar el PDF. Intenta nuevamente.', 5000);
-            }
-        }
-
-        // Función para descargar el PDF
-        function downloadPdf() {
-            if (!currentPdfBlob) return;
-            
-            const link = document.createElement('a');
-            link.href = currentPdfUrl;
-            link.download = 'CV_Wendy_Salome_Estrada.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            showNotification('PDF descargado exitosamente');
-        }
-
-        // Función para imprimir el PDF
-        function printPdf() {
-            if (!currentPdfUrl) return;
-            
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = currentPdfUrl;
-            document.body.appendChild(iframe);
-            
-            iframe.onload = function() {
-                iframe.contentWindow.print();
-            };
+            }, 500);
         }
 
         // Event Listeners
         document.getElementById('btn-preview').addEventListener('click', generatePdfPreview);
-        document.getElementById('downloadPdf').addEventListener('click', downloadPdf);
-        document.getElementById('printPdf').addEventListener('click', printPdf);
+        document.getElementById('btn-print').addEventListener('click', printCV);
         document.getElementById('cancelPdf').addEventListener('click', function() {
             document.getElementById('previewModal').classList.remove('active');
         });
@@ -1072,13 +1132,6 @@
         document.getElementById('previewModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 this.classList.remove('active');
-            }
-        });
-
-        // Limpiar URLs al cerrar la página
-        window.addEventListener('beforeunload', function() {
-            if (currentPdfUrl) {
-                URL.revokeObjectURL(currentPdfUrl);
             }
         });
 
