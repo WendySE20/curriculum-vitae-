@@ -6,6 +6,8 @@
     <title>CV - Wendy Salome Estrada | Desarrolladora Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
             --primary-color: #4a00e0;
@@ -468,11 +470,6 @@
             color: white;
         }
         
-        .preview-btn-print {
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
-            color: white;
-        }
-        
         .preview-btn-cancel {
             background: linear-gradient(135deg, #f44336, #d32f2f);
             color: white;
@@ -643,7 +640,7 @@
     <div class="preview-modal" id="previewModal">
         <div class="preview-content">
             <div class="preview-header">
-                <h3>Vista previa del CV - PDF</h3>
+                <h3 id="preview-title">Vista previa del CV - PDF</h3>
                 <button class="close-btn" id="closePreview">&times;</button>
             </div>
             <div class="preview-body">
@@ -652,13 +649,10 @@
             </div>
             <div class="preview-footer">
                 <button class="preview-btn preview-btn-download" id="downloadPdf">
-                    <i class="fas fa-download"></i> Descargar PDF
-                </button>
-                <button class="preview-btn preview-btn-print" id="printPdf">
-                    <i class="fas fa-print"></i> Imprimir
+                    <i class="fas fa-download"></i> <span id="download-text">Descargar PDF</span>
                 </button>
                 <button class="preview-btn preview-btn-cancel" id="cancelPdf">
-                    <i class="fas fa-times"></i> Cerrar
+                    <i class="fas fa-times"></i> <span id="close-text">Cerrar</span>
                 </button>
             </div>
         </div>
@@ -682,7 +676,7 @@
         <header>
             <div class="profile-info">
                 <h1>WENDY SALOME ESTRADA</h1>
-                <p class="specialty">Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
+                <p class="specialty" id="specialty-text">Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
             </div>
             <div class="contact-info">
                 <div class="contact-item">
@@ -706,36 +700,36 @@
         
         <div class="content">
             <section class="profile">
-                <h2><i class="fas fa-user"></i> Perfil Profesional</h2>
-                <p class="profile-text">Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
+                <h2><i class="fas fa-user"></i> <span id="profile-title">Perfil Profesional</span></h2>
+                <p class="profile-text" id="profile-text">Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
             </section>
             
             <section class="education">
-                <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
+                <h2><i class="fas fa-graduation-cap"></i> <span id="education-title">Educación</span></h2>
                 <div class="education-grid">
                     <div class="education-item">
-                        <h3>Técnica en Programación</h3>
-                        <span class="date">Título profesional</span>
-                        <p>Especialización en fundamentos de programación y desarrollo de aplicaciones.</p>
+                        <h3 id="education-item-1-title">Técnica en Programación</h3>
+                        <span class="date" id="education-item-1-date">Título profesional</span>
+                        <p id="education-item-1-text">Especialización en fundamentos de programación y desarrollo de aplicaciones.</p>
                     </div>
                     <div class="education-item">
-                        <h3>TSU en Desarrollo de Software Multiplataforma</h3>
-                        <span class="date">Título profesional</span>
-                        <p>Formación en desarrollo de software para múltiples plataformas y dispositivos.</p>
+                        <h3 id="education-item-2-title">TSU en Desarrollo de Software Multiplataforma</h3>
+                        <span class="date" id="education-item-2-date">Título profesional</span>
+                        <p id="education-item-2-text">Formación en desarrollo de software para múltiples plataformas y dispositivos.</p>
                     </div>
                     <div class="education-item">
-                        <h3>Ingeniería en Desarrollo y Gestión de Software</h3>
-                        <span class="date">Título en trámite</span>
-                        <p>Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</p>
+                        <h3 id="education-item-3-title">Ingeniería en Desarrollo y Gestión de Software</h3>
+                        <span class="date" id="education-item-3-date">Título en trámite</span>
+                        <p id="education-item-3-text">Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</p>
                     </div>
                 </div>
             </section>
             
             <section class="skills">
-                <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
+                <h2><i class="fas fa-code"></i> <span id="skills-title">Habilidades Técnicas</span></h2>
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3>Lenguajes de Programación</h3>
+                        <h3 id="skills-category-1-title">Lenguajes de Programación</h3>
                         <div class="skills-list">
                             <span class="skill">HTML5</span>
                             <span class="skill">CSS3</span>
@@ -748,7 +742,7 @@
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Frameworks & Librerías</h3>
+                        <h3 id="skills-category-2-title">Frameworks & Librerías</h3>
                         <div class="skills-list">
                             <span class="skill">Laravel</span>
                             <span class="skill">Node.js</span>
@@ -761,7 +755,7 @@
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Bases de Datos</h3>
+                        <h3 id="skills-category-3-title">Bases de Datos</h3>
                         <div class="skills-list">
                             <span class="skill">MySQL</span>
                             <span class="skill">MongoDB</span>
@@ -771,7 +765,7 @@
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Herramientas & Tecnologías</h3>
+                        <h3 id="skills-category-4-title">Herramientas & Tecnologías</h3>
                         <div class="skills-list">
                             <span class="skill">Git & GitHub</span>
                             <span class="skill">APIs REST</span>
@@ -786,81 +780,81 @@
             </section>
             
             <section class="projects">
-                <h2><i class="fas fa-briefcase"></i> Proyectos Destacados</h2>
+                <h2><i class="fas fa-briefcase"></i> <span id="projects-title">Proyectos Destacados</span></h2>
                 <div class="projects-grid">
                     <div class="project-item">
-                        <h3>Integración Jira ⇄ ITSM</h3>
-                        <p>Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
-                        <p><strong>Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
+                        <h3 id="project-item-1-title">Integración Jira ⇄ ITSM</h3>
+                        <p id="project-item-1-text">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
+                        <p><strong id="project-item-1-tools-label">Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3>Aplicación móvil tipo Uber para personas con discapacidad</h3>
-                        <p>Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
-                        <p><strong>Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
+                        <h3 id="project-item-2-title">Aplicación móvil tipo Uber para personas con discapacidad</h3>
+                        <p id="project-item-2-text">Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
+                        <p><strong id="project-item-2-tools-label">Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3>Sistema de Gestión de Inventarios Inteligente</h3>
-                        <p>Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</p>
-                        <p><strong>Herramientas:</strong> Laravel, MySQL, JavaScript, APIs REST, Chart.js.</p>
+                        <h3 id="project-item-3-title">Sistema de Gestión de Inventarios Inteligente</h3>
+                        <p id="project-item-3-text">Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</p>
+                        <p><strong id="project-item-3-tools-label">Herramientas:</strong> Laravel, MySQL, JavaScript, APIs REST, Chart.js.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3>Sistema de Monitoreo de Servidores en Tiempo Real</h3>
-                        <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
-                        <p><strong>Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
+                        <h3 id="project-item-4-title">Sistema de Monitoreo de Servidores en Tiempo Real</h3>
+                        <p id="project-item-4-text">Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
+                        <p><strong id="project-item-4-tools-label">Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3>Generación de sistema web/Citas médicas</h3>
-                        <p>Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
+                        <h3 id="project-item-5-title">Generación de sistema web/Citas médicas</h3>
+                        <p id="project-item-5-text">Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3>Portal inmobiliario (Proyecto escolar)</h3>
-                        <p>Portal con CRUD de inmuebles y panel administrativo.</p>
-                        <p><strong>Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
+                        <h3 id="project-item-6-title">Portal inmobiliario (Proyecto escolar)</h3>
+                        <p id="project-item-6-text">Portal con CRUD de inmuebles y panel administrativo.</p>
+                        <p><strong id="project-item-6-tools-label">Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
                     </div>
                 </div>
             </section>
             
             <section class="interests-section">
-                <h2><i class="fas fa-heart"></i> Intereses</h2>
+                <h2><i class="fas fa-heart"></i> <span id="interests-title">Intereses</span></h2>
                 <div class="interests">
                     <div class="interest">
                         <i class="fas fa-music"></i>
-                        <span>Música</span>
+                        <span id="interest-1">Música</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-book"></i>
-                        <span>Lectura</span>
+                        <span id="interest-2">Lectura</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-laptop-code"></i>
-                        <span>Tecnología</span>
+                        <span id="interest-3">Tecnología</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-gamepad"></i>
-                        <span>Videojuegos</span>
+                        <span id="interest-4">Videojuegos</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-paint-brush"></i>
-                        <span>Diseño</span>
+                        <span id="interest-5">Diseño</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-robot"></i>
-                        <span>Inteligencia Artificial</span>
+                        <span id="interest-6">Inteligencia Artificial</span>
                     </div>
                 </div>
             </section>
             
             <div class="buttons">
                 <button id="btn-preview" class="btn btn-primary">
-                    <i class="fas fa-eye"></i> Vista Previa PDF
+                    <i class="fas fa-eye"></i> <span id="preview-button-text">Vista Previa PDF</span>
                 </button>
                 <button id="btn-print" class="btn btn-secondary">
-                    <i class="fas fa-print"></i> Imprimir
+                    <i class="fas fa-print"></i> <span id="print-button-text">Imprimir</span>
                 </button>
                 <a href="https://github.com/WendySE20" class="btn btn-secondary" target="_blank">
                     <i class="fab fa-github"></i> Ver GitHub
@@ -869,11 +863,134 @@
         </div>
         
         <footer>
-            <p>© 2023 Wendy Salome Estrada - Desarrolladora Full Stack</p>
+            <p>© 2023 Wendy Salome Estrada - <span id="footer-text">Desarrolladora Full Stack</span></p>
         </footer>
     </div>
 
     <script>
+        // ===== CONFIGURACIÓN DE TRADUCCIÓN =====
+        const translations = {
+            'es': {
+                'specialty-text': 'Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos',
+                'profile-title': 'Perfil Profesional',
+                'profile-text': 'Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.',
+                'education-title': 'Educación',
+                'education-item-1-title': 'Técnica en Programación',
+                'education-item-1-date': 'Título profesional',
+                'education-item-1-text': 'Especialización en fundamentos de programación y desarrollo de aplicaciones.',
+                'education-item-2-title': 'TSU en Desarrollo de Software Multiplataforma',
+                'education-item-2-date': 'Título profesional',
+                'education-item-2-text': 'Formación en desarrollo de software para múltiples plataformas y dispositivos.',
+                'education-item-3-title': 'Ingeniería en Desarrollo y Gestión de Software',
+                'education-item-3-date': 'Título en trámite',
+                'education-item-3-text': 'Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.',
+                'skills-title': 'Habilidades Técnicas',
+                'skills-category-1-title': 'Lenguajes de Programación',
+                'skills-category-2-title': 'Frameworks & Librerías',
+                'skills-category-3-title': 'Bases de Datos',
+                'skills-category-4-title': 'Herramientas & Tecnologías',
+                'projects-title': 'Proyectos Destacados',
+                'project-item-1-title': 'Integración Jira ⇄ ITSM',
+                'project-item-1-text': 'Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.',
+                'project-item-1-tools-label': 'Herramientas:',
+                'project-item-2-title': 'Aplicación móvil tipo Uber para personas con discapacidad',
+                'project-item-2-text': 'Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.',
+                'project-item-2-tools-label': 'Herramientas:',
+                'project-item-3-title': 'Sistema de Gestión de Inventarios Inteligente',
+                'project-item-3-text': 'Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.',
+                'project-item-3-tools-label': 'Herramientas:',
+                'project-item-4-title': 'Sistema de Monitoreo de Servidores en Tiempo Real',
+                'project-item-4-text': 'Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.',
+                'project-item-4-tools-label': 'Herramientas:',
+                'project-item-5-title': 'Generación de sistema web/Citas médicas',
+                'project-item-5-text': 'Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.',
+                'project-item-6-title': 'Portal inmobiliario (Proyecto escolar)',
+                'project-item-6-text': 'Portal con CRUD de inmuebles y panel administrativo.',
+                'project-item-6-tools-label': 'Herramientas:',
+                'interests-title': 'Intereses',
+                'interest-1': 'Música',
+                'interest-2': 'Lectura',
+                'interest-3': 'Tecnología',
+                'interest-4': 'Videojuegos',
+                'interest-5': 'Diseño',
+                'interest-6': 'Inteligencia Artificial',
+                'preview-button-text': 'Vista Previa PDF',
+                'print-button-text': 'Imprimir',
+                'footer-text': 'Desarrolladora Full Stack',
+                'preview-title': 'Vista previa del CV - PDF',
+                'download-text': 'Descargar PDF',
+                'close-text': 'Cerrar'
+            },
+            'en': {
+                'specialty-text': 'Full Stack Developer with Experience in Mobile Applications and Project Management',
+                'profile-title': 'Professional Profile',
+                'profile-text': 'Full Stack Developer with solid technical training and experience in web, mobile and API development. I have led academic and personal projects that demonstrate my ability to design complete solutions, from conception to implementation. Specialized in creating efficient integrations between systems and database management. Recognized for my proactivity, fast learning ability and adaptation to new technologies.',
+                'education-title': 'Education',
+                'education-item-1-title': 'Programming Technician',
+                'education-item-1-date': 'Professional degree',
+                'education-item-1-text': 'Specialization in programming fundamentals and application development.',
+                'education-item-2-title': 'TSU in Multiplatform Software Development',
+                'education-item-2-date': 'Professional degree',
+                'education-item-2-text': 'Training in software development for multiple platforms and devices.',
+                'education-item-3-title': 'Engineering in Software Development and Management',
+                'education-item-3-date': 'Degree in process',
+                'education-item-3-text': 'Complete training in software engineering with a focus on development and management of technological projects.',
+                'skills-title': 'Technical Skills',
+                'skills-category-1-title': 'Programming Languages',
+                'skills-category-2-title': 'Frameworks & Libraries',
+                'skills-category-3-title': 'Databases',
+                'skills-category-4-title': 'Tools & Technologies',
+                'projects-title': 'Featured Projects',
+                'project-item-1-title': 'Jira ⇄ ITSM Integration',
+                'project-item-1-text': 'Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with duplicate handling.',
+                'project-item-1-tools-label': 'Tools:',
+                'project-item-2-title': 'Uber-type mobile application for people with disabilities',
+                'project-item-2-text': 'Mobile app development with geolocation, user registration and real-time communication.',
+                'project-item-2-tools-label': 'Tools:',
+                'project-item-3-title': 'Smart Inventory Management System',
+                'project-item-3-text': 'Development of a comprehensive inventory management system with automatic alerts, predictive reports and integration with point-of-sale systems.',
+                'project-item-3-tools-label': 'Tools:',
+                'project-item-4-title': 'Real-Time Server Monitoring System',
+                'project-item-4-text': 'Development of a real-time monitoring dashboard for servers and web services. Includes alerts, performance metrics and automatic reports.',
+                'project-item-4-tools-label': 'Tools:',
+                'project-item-5-title': 'Web system generation/Medical appointments',
+                'project-item-5-text': 'Online store for medical appointments with frontend (HTML/CSS/JS) and backend (PHP + MySQL). Integrated user and reservation management systems with database.',
+                'project-item-6-title': 'Real estate portal (School project)',
+                'project-item-6-text': 'Portal with CRUD of properties and administrative panel.',
+                'project-item-6-tools-label': 'Tools:',
+                'interests-title': 'Interests',
+                'interest-1': 'Music',
+                'interest-2': 'Reading',
+                'interest-3': 'Technology',
+                'interest-4': 'Video Games',
+                'interest-5': 'Design',
+                'interest-6': 'Artificial Intelligence',
+                'preview-button-text': 'PDF Preview',
+                'print-button-text': 'Print',
+                'footer-text': 'Full Stack Developer',
+                'preview-title': 'CV Preview - PDF',
+                'download-text': 'Download PDF',
+                'close-text': 'Close'
+            }
+        };
+
+        // Función para cambiar el idioma
+        function changeLanguage(lang) {
+            // Almacenar el idioma seleccionado
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Actualizar todos los textos
+            for (const [key, value] of Object.entries(translations[lang])) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+            
+            // Mostrar notificación
+            showNotification(lang === 'es' ? 'Idioma cambiado a Español' : 'Language changed to English');
+        }
+
         // Función para mostrar notificación
         function showNotification(message, duration = 3000) {
             const notification = document.getElementById('notification');
@@ -1097,6 +1214,51 @@
             showNotification('Vista previa generada correctamente');
         }
 
+        // Función para descargar PDF
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            
+            // Ocultar controles que no deben aparecer en el PDF
+            const languageControls = document.querySelector('.language-controls');
+            const buttons = document.querySelector('.buttons');
+            const originalLanguageDisplay = languageControls.style.display;
+            const originalButtonsDisplay = buttons.style.display;
+            
+            languageControls.style.display = 'none';
+            buttons.style.display = 'none';
+            
+            // Capturar el contenido del CV
+            html2canvas(document.getElementById('cv-content')).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 297; // A4 height in mm
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                let heightLeft = imgHeight;
+                let position = 0;
+
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                // Add additional pages if needed
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+
+                // Descargar el PDF
+                pdf.save('CV_Wendy_Salome_Estrada.pdf');
+                
+                // Restaurar controles
+                languageControls.style.display = originalLanguageDisplay;
+                buttons.style.display = originalButtonsDisplay;
+                
+                showNotification('PDF descargado correctamente');
+            });
+        }
+
         // Función para imprimir directamente
         function printCV() {
             // Ocultar controles que no deben aparecer en la impresión
@@ -1121,11 +1283,21 @@
         // Event Listeners
         document.getElementById('btn-preview').addEventListener('click', generatePdfPreview);
         document.getElementById('btn-print').addEventListener('click', printCV);
+        document.getElementById('downloadPdf').addEventListener('click', downloadPDF);
         document.getElementById('cancelPdf').addEventListener('click', function() {
             document.getElementById('previewModal').classList.remove('active');
         });
         document.getElementById('closePreview').addEventListener('click', function() {
             document.getElementById('previewModal').classList.remove('active');
+        });
+
+        // Botones de idioma
+        document.getElementById('btn-es').addEventListener('click', function() {
+            changeLanguage('es');
+        });
+        
+        document.getElementById('btn-en').addEventListener('click', function() {
+            changeLanguage('en');
         });
 
         // Cerrar modal al hacer clic fuera del contenido
@@ -1135,8 +1307,11 @@
             }
         });
 
-        // Efectos de animación al cargar la página
+        // Cargar idioma guardado al iniciar
         document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'es';
+            changeLanguage(savedLanguage);
+            
             const items = document.querySelectorAll('.education-item, .project-item, .skill-category');
             items.forEach((item, index) => {
                 item.style.animationDelay = `${index * 0.1}s`;
