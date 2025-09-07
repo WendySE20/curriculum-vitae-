@@ -518,119 +518,131 @@
         
         /* Estilos específicos para impresión/PDF - MEJORADOS */
         @media print {
-            body {
-                background: white;
-                padding: 0;
+            body, html {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
                 font-size: 12pt;
                 line-height: 1.5;
-                color: #000;
+                color: #000 !important;
                 font-family: 'Arial', sans-serif;
+                width: 100% !important;
+                height: auto !important;
+                overflow: visible !important;
             }
             
             .container {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: 100%;
-                margin: 0;
-                padding: 0;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                background: white !important;
             }
             
             header {
                 background: #4a00e0 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                padding: 25px 20px;
-                text-align: left;
-                display: block;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color: white !important;
+                padding: 25px 20px !important;
+                text-align: left !important;
+                display: block !important;
             }
             
             .profile-info h1 {
-                font-size: 24pt;
-                color: white;
-                margin-bottom: 10px;
+                font-size: 24pt !important;
+                color: white !important;
+                margin-bottom: 10px !important;
             }
             
             .profile-info h1::after {
-                display: none;
+                display: none !important;
             }
             
             .specialty {
-                font-size: 14pt;
-                color: white;
-                margin: 10px 0;
+                font-size: 14pt !important;
+                color: white !important;
+                margin: 10px 0 !important;
             }
             
             .contact-info {
-                justify-content: flex-start;
-                margin-top: 20px;
+                justify-content: flex-start !important;
+                margin-top: 20px !important;
             }
             
             .contact-item {
-                margin-bottom: 8px;
+                margin-bottom: 8px !important;
+                color: white !important;
             }
             
             .contact-item a {
-                color: white;
-                text-decoration: none;
+                color: white !important;
+                text-decoration: none !important;
             }
             
             .content {
-                padding: 25px;
+                padding: 25px !important;
+                background: white !important;
             }
             
             section {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                margin-bottom: 20px;
-                padding: 20px;
-                page-break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                border-radius: 5px !important;
+                margin-bottom: 20px !important;
+                padding: 20px !important;
+                page-break-inside: avoid !important;
+                background: white !important;
             }
             
             h2 {
-                font-size: 16pt;
-                color: #4a00e0;
-                border-bottom: 2px solid #8e2de2;
-                padding-bottom: 8px;
-                margin-bottom: 15px;
+                font-size: 16pt !important;
+                color: #4a00e0 !important;
+                border-bottom: 2px solid #8e2de2 !important;
+                padding-bottom: 8px !important;
+                margin-bottom: 15px !important;
             }
             
             h2 i {
-                display: none;
+                display: none !important;
             }
             
             .education-grid, .projects-grid, .skills-container {
-                grid-template-columns: 1fr;
-                gap: 15px;
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
             }
             
             .education-item, .project-item, .skill-category {
-                box-shadow: none;
-                border: 1px solid #eee;
-                border-left: 4px solid #8e2de2;
-                page-break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #eee !important;
+                border-left: 4px solid #8e2de2 !important;
+                page-break-inside: avoid !important;
                 background: #f9f9f9 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             
             .skill {
                 background: #8e2de2 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                color: white;
-                display: inline-block;
-                margin: 4px;
-                padding: 5px 12px;
-                border-radius: 15px;
-                font-size: 10pt;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color: white !important;
+                display: inline-block !important;
+                margin: 4px !important;
+                padding: 5px 12px !important;
+                border-radius: 15px !important;
+                font-size: 10pt !important;
             }
             
             .btn, .language-controls {
-                display: none;
+                display: none !important;
             }
             
             a {
-                text-decoration: none;
-                color: var(--text-color);
+                text-decoration: none !important;
+                color: var(--text-color) !important;
             }
             
             .contact-item a::after {
@@ -640,39 +652,55 @@
             }
             
             footer {
-                display: none;
+                display: none !important;
             }
             
             /* Mejorar espaciado para impresión */
             .profile-text {
-                text-align: left;
-                font-size: 11pt;
+                text-align: left !important;
+                font-size: 11pt !important;
+                color: #000 !important;
             }
             
             /* Ajustar tamaño de fuentes para impresión */
             .education-item p, .project-item p {
-                font-size: 11pt;
+                font-size: 11pt !important;
+                color: #000 !important;
             }
             
             /* Asegurar que no se corten elementos entre páginas */
             .education-item, .project-item, .skill-category {
-                page-break-inside: avoid;
+                page-break-inside: avoid !important;
             }
             
             /* Estilo para intereses en impresión */
             .interests {
-                justify-content: flex-start;
+                justify-content: flex-start !important;
             }
             
             .interest {
-                background: #f0f0f0;
-                padding: 8px 15px;
-                margin: 5px;
+                background: #f0f0f0 !important;
+                padding: 8px 15px !important;
+                margin: 5px !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             
             .interest i {
-                display: none;
+                display: none !important;
             }
+            
+            /* Forzar colores de fondo para todos los elementos */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+        
+        /* Clase especial para generar PDF */
+        .pdf-version {
+            display: none;
         }
         
         @media (max-width: 768px) {
@@ -769,6 +797,187 @@
     </div>
     
     <div class="container" id="cv-content">
+        <!-- Versión especial para PDF (oculta en navegador) -->
+        <div class="pdf-version">
+            <header>
+                <div class="profile-info">
+                    <h1>WENDY SALOME ESTRADA</h1>
+                    <p class="specialty">Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:salomewendy524@outlook.com">salomewendy524@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+525569030109">55 6903 0109</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/WendySE20" target="_blank">github.com/WendySE20</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/wendy-salome-estrada-644227383/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content">
+                <section class="profile">
+                    <h2><i class="fas fa-user"></i> Perfil Profesional</h2>
+                    <p class="profile-text">Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
+                </section>
+                
+                <section class="education">
+                    <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
+                    <div class="education-grid">
+                        <div class="education-item">
+                            <h3>Técnica en Programación</h3>
+                            <span class="date">Título profesional</span>
+                            <p>Especialización en fundamentos de programación y desarrollo de aplicaciones.</p>
+                        </div>
+                        <div class="education-item">
+                            <h3>TSU en Desarrollo de Software Multiplataforma</h3>
+                            <span class="date">Título profesional</span>
+                            <p>Formación en desarrollo de software para múltiples plataformas y dispositivos.</p>
+                        </div>
+                        <div class="education-item">
+                            <h3>Ingeniería en Desarrollo y Gestión de Software</h3>
+                            <span class="date">Título en trámite</span>
+                            <p>Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="skills">
+                    <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Lenguajes de Programación</h3>
+                            <div class="skills-list">
+                                <span class="skill">HTML5</span>
+                                <span class="skill">CSS3</span>
+                                <span class="skill">JavaScript</span>
+                                <span class="skill">PHP</span>
+                                <span class="skill">C#</span>
+                                <span class="skill">Dart</span>
+                                <span class="skill">Java</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Frameworks & Librerías</h3>
+                            <div class="skills-list">
+                                <span class="skill">Laravel</span>
+                                <span class="skill">Node.js</span>
+                                <span class="skill">Express.js</span>
+                                <span class="skill">Flutter</span>
+                                <span class="skill">React</span>
+                                <span class="skill">Vue.js</span>
+                                <span class="skill">Bootstrap</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Bases de Datos</h3>
+                            <div class="skills-list">
+                                <span class="skill">MySQL</span>
+                                <span class="skill">MongoDB</span>
+                                <span class="skill">Firebase</span>
+                                <span class="skill">SQLite</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Herramientas & Tecnologías</h3>
+                            <div class="skills-list">
+                                <span class="skill">Git & GitHub</span>
+                                <span class="skill">APIs REST</span>
+                                <span class="skill">Postman</span>
+                                <span class="skill">Jira</span>
+                                <span class="skill">Docker</span>
+                                <span class="skill">Unity</span>
+                                <span class="skill">ngrok</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="projects">
+                    <h2><i class="fas fa-briefcase"></i> Proyectos Destacados</h2>
+                    <div class="projects-grid">
+                        <div class="project-item">
+                            <h3>Integración Jira ⇄ ITSM</h3>
+                            <p>Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
+                            <p><strong>Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Aplicación móvil tipo Uber para personas con discapacidad</h3>
+                            <p>Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
+                            <p><strong>Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Sistema de Gestión de Inventarios Inteligente</h3>
+                            <p>Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</p>
+                            <p><strong>Herramientas:</strong> Laravel, MySQL, JavaScript, APIs REST, Chart.js.</p>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Sistema de Monitoreo de Servidores en Tiempo Real</h3>
+                            <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
+                            <p><strong>Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Generación de sistema web/Citas médicas</h3>
+                            <p>Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Portal inmobiliario (Proyecto escolar)</h3>
+                            <p>Portal con CRUD de inmuebles y panel administrativo.</p>
+                            <p><strong>Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="interests-section">
+                    <h2><i class="fas fa-heart"></i> Intereses</h2>
+                    <div class="interests">
+                        <div class="interest">
+                            <i class="fas fa-music"></i>
+                            <span>Música</span>
+                        </div>
+                        <div class="interest">
+                            <i class="fas fa-book"></i>
+                            <span>Lectura</span>
+                        </div>
+                        <div class="interest">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Tecnología</span>
+                        </div>
+                        <div class="interest">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Videojuegos</span>
+                        </div>
+                        <div class="interest">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Diseño</span>
+                        </div>
+                        <div class="interest">
+                            <i class="fas fa-robot"></i>
+                            <span>Inteligencia Artificial</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <!-- Versión normal para navegador -->
         <div class="language-controls">
             <button id="btn-es" class="btn btn-primary">
                 <i class="fas fa-language"></i> Español
@@ -913,7 +1122,7 @@
                     
                     <div class="project-item">
                         <h3>Generación de sistema web/Citas médicas</h3>
-                        <p>Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
+                        <p>Tienda en línea para citas médicas con frontend (HTML/CSS/JS) and backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
                     </div>
                     
                     <div class="project-item">
@@ -989,7 +1198,7 @@
 
         // Función para generar el PDF y mostrar la previsualización
         async function generatePdfPreview() {
-            const element = document.getElementById('cv-content');
+            const element = document.querySelector('.pdf-version');
             const modal = document.getElementById('previewModal');
             const spinner = document.getElementById('pdfSpinner');
             const iframe = document.getElementById('pdfPreview');
@@ -1006,7 +1215,7 @@
                 html2canvas: { 
                     scale: 2,
                     useCORS: true,
-                    logging: false,
+                    logging: true,
                     letterRendering: true,
                     backgroundColor: '#FFFFFF'
                 },
