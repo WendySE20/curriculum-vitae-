@@ -589,6 +589,28 @@
             border-radius: 15px;
             overflow: hidden;
         }
+
+        /* Versión alternativa para PDF con colores sólidos */
+        .pdf-mode header {
+            background: #4a00e0 !important;
+        }
+        
+        .pdf-mode .btn-primary,
+        .pdf-mode .preview-btn-download {
+            background: #4a00e0 !important;
+        }
+        
+        .pdf-mode .skill {
+            background: #8e2de2 !important;
+        }
+        
+        .pdf-mode .skill:hover {
+            background: #7d1dd1 !important;
+        }
+        
+        .pdf-mode .interest:hover {
+            background: #8e2de2 !important;
+        }
     </style>
 </head>
 <body>
@@ -862,6 +884,15 @@
             languageControls.style.display = 'none';
             buttons.style.display = 'none';
             
+            // Clonar el elemento para modificar estilos sin afectar la visualización principal
+            const clonedElement = element.cloneNode(true);
+            clonedElement.id = 'cv-content-clone';
+            clonedElement.classList.add('pdf-mode');
+            document.body.appendChild(clonedElement);
+            clonedElement.style.position = 'absolute';
+            clonedElement.style.left = '-9999px';
+            
+            // Configuración optimizada para html2pdf
             const opt = {
                 margin: [5, 5, 5, 5],
                 filename: 'CV_Wendy_Salome_Estrada.pdf',
@@ -870,29 +901,37 @@
                     quality: 1.0  // Máxima calidad
                 },
                 html2canvas: { 
-                    scale: 3, // Alta resolución
+                    scale: 2, // Resolución alta
                     useCORS: true,
-                    logging: true,
+                    logging: false,
                     letterRendering: true,
                     backgroundColor: '#FFFFFF',
-                    allowTaint: true,
                     onclone: function(clonedDoc) {
                         // Asegurar que todos los estilos se apliquen correctamente
-                        const clonedContainer = clonedDoc.getElementById('cv-content');
-                        clonedContainer.style.width = '100%';
-                        clonedContainer.style.boxShadow = 'none';
-                        clonedContainer.style.borderRadius = '0';
-                        clonedContainer.style.margin = '0';
-                        
-                        // Asegurar que los gradientes se muestren correctamente
-                        const header = clonedDoc.querySelector('header');
-                        header.style.background = 'linear-gradient(135deg, #4a00e0, #8e2de2)';
-                        
-                        // Asegurar que los elementos ocultos permanezcan ocultos
-                        const languageControls = clonedDoc.querySelector('.language-controls');
-                        const buttons = clonedDoc.querySelector('.buttons');
-                        if (languageControls) languageControls.style.display = 'none';
-                        if (buttons) buttons.style.display = 'none';
+                        const clonedContainer = clonedDoc.getElementById('cv-content-clone');
+                        if (clonedContainer) {
+                            clonedContainer.style.width = '100%';
+                            clonedContainer.style.boxShadow = 'none';
+                            clonedContainer.style.borderRadius = '0';
+                            clonedContainer.style.margin = '0';
+                            
+                            // Forzar colores sólidos para evitar problemas de renderizado
+                            const header = clonedContainer.querySelector('header');
+                            if (header) {
+                                header.style.background = '#4a00e0';
+                            }
+                            
+                            const skills = clonedContainer.querySelectorAll('.skill');
+                            skills.forEach(skill => {
+                                skill.style.background = '#8e2de2';
+                            });
+                            
+                            // Ocultar elementos que no deben aparecer
+                            const languageControls = clonedContainer.querySelector('.language-controls');
+                            const buttons = clonedContainer.querySelector('.buttons');
+                            if (languageControls) languageControls.style.display = 'none';
+                            if (buttons) buttons.style.display = 'none';
+                        }
                     }
                 },
                 jsPDF: { 
@@ -905,7 +944,7 @@
             
             try {
                 // Generar PDF como blob
-                const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
+                const pdfBlob = await html2pdf().set(opt).from(clonedElement).outputPdf('blob');
                 
                 // Crear URL para el blob
                 const pdfUrl = URL.createObjectURL(pdfBlob);
@@ -925,6 +964,9 @@
                     // Restaurar controles después de generar el PDF
                     languageControls.style.display = originalLanguageDisplay;
                     buttons.style.display = originalButtonsDisplay;
+                    
+                    // Eliminar el elemento clonado
+                    document.body.removeChild(clonedElement);
                 };
                 iframe.src = pdfUrl;
                 
@@ -935,6 +977,11 @@
                 // Restaurar controles en caso de error
                 languageControls.style.display = originalLanguageDisplay;
                 buttons.style.display = originalButtonsDisplay;
+                
+                // Eliminar el elemento clonado en caso de error
+                if (document.getElementById('cv-content-clone')) {
+                    document.body.removeChild(clonedElement);
+                }
                 
                 showNotification('Error al generar el PDF. Intenta nuevamente.', 5000);
             }
