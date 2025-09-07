@@ -144,6 +144,7 @@
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            page-break-inside: avoid;
         }
         
         section:hover {
@@ -185,6 +186,7 @@
             border-radius: 10px;
             transition: all 0.3s ease;
             border-left: 4px solid var(--secondary-color);
+            page-break-inside: avoid;
         }
         
         .education-item:hover, .project-item:hover {
@@ -217,6 +219,7 @@
             background: var(--light-bg);
             border-radius: 10px;
             transition: all 0.3s ease;
+            page-break-inside: avoid;
         }
         
         .skill-category:hover {
@@ -361,18 +364,117 @@
             gap: 15px;
         }
         
-        .progress-bar {
-            height: 6px;
-            background: #e9ecef;
-            border-radius: 3px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            border-radius: 3px;
+        /* Estilos específicos para impresión/PDF */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            header {
+                background: #4a00e0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 25px 20px;
+            }
+            
+            .profile-info h1 {
+                font-size: 22pt;
+                color: white;
+            }
+            
+            .specialty {
+                font-size: 14pt;
+                color: white;
+            }
+            
+            .contact-info {
+                justify-content: space-around;
+            }
+            
+            .contact-item a {
+                color: white;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                padding: 15px;
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                font-size: 16pt;
+                color: #4a00e0;
+                border-bottom: 1px solid #8e2de2;
+            }
+            
+            .education-grid, .projects-grid, .skills-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .education-item, .project-item, .skill-category {
+                box-shadow: none;
+                border: 1px solid #eee;
+                page-break-inside: avoid;
+            }
+            
+            .skill {
+                background: #8e2de2 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color: white;
+            }
+            
+            .btn, .language-controls {
+                display: none;
+            }
+            
+            a {
+                text-decoration: none;
+                color: var(--text-color);
+            }
+            
+            .contact-item a::after {
+                content: " (" attr(href) ")";
+                font-size: 0.7rem;
+                word-break: break-all;
+            }
+            
+            footer {
+                display: none;
+            }
+            
+            /* Asegurar que no se corten elementos entre páginas */
+            .education-item, .project-item, .skill-category {
+                page-break-inside: avoid;
+            }
+            
+            /* Mejorar espaciado para impresión */
+            .profile-text {
+                text-align: left;
+            }
+            
+            /* Ajustar tamaño de fuentes para impresión */
+            .profile-text, .education-item p, .project-item p {
+                font-size: 11pt;
+            }
         }
         
         @media (max-width: 768px) {
@@ -418,32 +520,6 @@
             .language-controls {
                 flex-direction: column;
                 align-items: center;
-            }
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .btn, .language-controls {
-                display: none;
-            }
-            
-            a {
-                text-decoration: none;
-                color: var(--text-color);
-            }
-            
-            section {
-                box-shadow: none;
-                border: 1px solid #ddd;
             }
         }
     </style>
@@ -669,14 +745,32 @@
         document.getElementById('btn-print').addEventListener('click', () => {
             const element = document.getElementById('cv-content');
             const opt = {
-                margin: 10,
-                filename: 'Wendy_Salome_Estrada_CV.pdf',
+                margin: [10, 10, 10, 10],
+                filename: 'CV_Wendy_Salome_Estrada.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    letterRendering: true
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait',
+                    compress: true
+                }
             };
             
-            html2pdf().set(opt).from(element).save();
+            // Ocultar controles antes de generar el PDF
+            document.querySelector('.language-controls').style.display = 'none';
+            document.querySelector('.buttons').style.display = 'none';
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restaurar controles después de generar el PDF
+                document.querySelector('.language-controls').style.display = 'flex';
+                document.querySelector('.buttons').style.display = 'flex';
+            });
         });
 
         // Efectos de animación al cargar la página
