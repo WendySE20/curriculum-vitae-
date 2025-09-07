@@ -414,6 +414,7 @@
             color: #4CAF50;
             font-size: 50px;
             margin-bottom: 20px;
+            display: none;
         }
         
         /* Notificación */
@@ -602,11 +603,11 @@
     <div class="pdf-modal" id="pdfModal">
         <div class="modal-content">
             <div class="spinner" id="pdfSpinner"></div>
-            <div class="success-icon" id="pdfSuccess" style="display: none;">
+            <div class="success-icon" id="pdfSuccess">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h3 id="modalTitle" data-es="Generando PDF..." data-en="Generating PDF...">Generando PDF...</h3>
-            <p id="modalMessage" data-es="Por favor espera, esto puede tomar unos segundos." data-en="Please wait, this may take a few seconds.">Por favor espera, esto puede tomar unos segundos.</p>
+            <h3 id="modalTitle">Generando PDF...</h3>
+            <p id="modalMessage">Por favor espera, esto puede tomar unos segundos.</p>
         </div>
     </div>
     
@@ -627,8 +628,8 @@
         
         <header>
             <div class="profile-info">
-                <h1 data-es="WENDY SALOME ESTRADA" data-en="WENDY SALOME ESTRADA">WENDY SALOME ESTRADA</h1>
-                <p class="specialty" data-es="Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos" data-en="Full Stack Developer with Experience in Mobile Applications and Project Management">Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
+                <h1>WENDY SALOME ESTRADA</h1>
+                <p class="specialty">Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
             </div>
             <div class="contact-info">
                 <div class="contact-item">
@@ -652,36 +653,36 @@
         
         <div class="content">
             <section class="profile">
-                <h2><i class="fas fa-user"></i> <span data-es="Perfil Profesional" data-en="Professional Profile">Perfil Profesional</span></h2>
-                <p class="profile-text" data-es="Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías." data-en="Full Stack Developer with solid technical training and experience in developing web, mobile and API applications. I have led academic and personal projects that demonstrate my ability to design complete solutions, from conception to implementation. Specialized in creating efficient integrations between systems and database management. Recognized for my proactivity, fast learning ability and adaptation to new technologies.">Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
+                <h2><i class="fas fa-user"></i> Perfil Profesional</h2>
+                <p class="profile-text">Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
             </section>
             
             <section class="education">
-                <h2><i class="fas fa-graduation-cap"></i> <span data-es="Educación" data-en="Education">Educación</span></h2>
+                <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
                 <div class="education-grid">
                     <div class="education-item">
-                        <h3 data-es="Técnica en Programación" data-en="Programming Technician">Técnica en Programación</h3>
-                        <span class="date" data-es="Título profesional" data-en="Professional title">Título profesional</span>
-                        <p data-es="Especialización en fundamentos de programación y desarrollo de aplicaciones." data-en="Specialization in programming fundamentals and application development.">Especialización en fundamentos de programación y desarrollo de aplicaciones.</p>
+                        <h3>Técnica en Programación</h3>
+                        <span class="date">Título profesional</span>
+                        <p>Especialización en fundamentos de programación y desarrollo de aplicaciones.</p>
                     </div>
                     <div class="education-item">
-                        <h3 data-es="TSU en Desarrollo de Software Multiplataforma" data-en="TSU in Multiplatform Software Development">TSU en Desarrollo de Software Multiplataforma</h3>
-                        <span class="date" data-es="Título profesional" data-en="Professional title">Título profesional</span>
-                        <p data-es="Formación en desarrollo de software para múltiples plataformas y dispositivos." data-en="Training in software development for multiple platforms and devices.">Formación en desarrollo de software para múltiples plataformas y dispositivos.</p>
+                        <h3>TSU en Desarrollo de Software Multiplataforma</h3>
+                        <span class="date">Título profesional</span>
+                        <p>Formación en desarrollo de software para múltiples plataformas y dispositivos.</p>
                     </div>
                     <div class="education-item">
-                        <h3 data-es="Ingeniería en Desarrollo y Gestión de Software" data-en="Software Development and Management Engineering">Ingeniería en Desarrollo y Gestión de Software</h3>
-                        <span class="date" data-es="Título en trámite" data-en="Degree in process">Título en trámite</span>
-                        <p data-es="Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos." data-en="Complete training in software engineering with a focus on development and management of technological projects.">Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</p>
+                        <h3>Ingeniería en Desarrollo y Gestión de Software</h3>
+                        <span class="date">Título en trámite</span>
+                        <p>Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</p>
                     </div>
                 </div>
             </section>
             
             <section class="skills">
-                <h2><i class="fas fa-code"></i> <span data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</span></h2>
+                <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3 data-es="Lenguajes de Programación" data-en="Programming Languages">Lenguajes de Programación</h3>
+                        <h3>Lenguajes de Programación</h3>
                         <div class="skills-list">
                             <span class="skill">HTML5</span>
                             <span class="skill">CSS3</span>
@@ -694,7 +695,7 @@
                     </div>
                     
                     <div class="skill-category">
-                        <h3 data-es="Frameworks & Librerías" data-en="Frameworks & Libraries">Frameworks & Librerías</h3>
+                        <h3>Frameworks & Librerías</h3>
                         <div class="skills-list">
                             <span class="skill">Laravel</span>
                             <span class="skill">Node.js</span>
@@ -707,7 +708,7 @@
                     </div>
                     
                     <div class="skill-category">
-                        <h3 data-es="Bases de Datos" data-en="Databases">Bases de Datos</h3>
+                        <h3>Bases de Datos</h3>
                         <div class="skills-list">
                             <span class="skill">MySQL</span>
                             <span class="skill">MongoDB</span>
@@ -717,7 +718,7 @@
                     </div>
                     
                     <div class="skill-category">
-                        <h3 data-es="Herramientas & Tecnologías" data-en="Tools & Technologies">Herramientas & Tecnologías</h3>
+                        <h3>Herramientas & Tecnologías</h3>
                         <div class="skills-list">
                             <span class="skill">Git & GitHub</span>
                             <span class="skill">APIs REST</span>
@@ -732,101 +733,91 @@
             </section>
             
             <section class="projects">
-                <h2><i class="fas fa-briefcase"></i> <span data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</span></h2>
+                <h2><i class="fas fa-briefcase"></i> Proyectos Destacados</h2>
                 <div class="projects-grid">
                     <div class="project-item">
-                        <h3 data-es="Integración Jira ⇄ ITSM" data-en="Jira ⇄ ITSM Integration">Integración Jira ⇄ ITSM</h3>
-                        <p data-es="Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados." data-en="Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with duplicate handling.">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
-                        <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
+                        <h3>Integración Jira ⇄ ITSM</h3>
+                        <p>Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
+                        <p><strong>Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3 data-es="Aplicación móvil tipo Uber para personas con discapacidad" data-en="Uber-like mobile app for people with disabilities">Aplicación móvil tipo Uber para personas con discapacidad</h3>
-                        <p data-es="Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real." data-en="Development of a mobile app with geolocation, user registration and real-time communication.">Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
-                        <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
+                        <h3>Aplicación móvil tipo Uber para personas con discapacidad</h3>
+                        <p>Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
+                        <p><strong>Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3 data-es="Sistema de Gestión de Inventarios Inteligente" data-en="Smart Inventory Management System">Sistema de Gestión de Inventarios Inteligente</h3>
-                        <p data-es="Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta." data-en="Development of a comprehensive inventory management system with automatic alerts, predictive reports and integration with point-of-sale systems.">Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</p>
-                        <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Laravel, MySQL, JavaScript, APIs REST, Chart.js.</p>
+                        <h3>Sistema de Gestión de Inventarios Inteligente</h3>
+                        <p>Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</p>
+                        <p><strong>Herramientas:</strong> Laravel, MySQL, JavaScript, APIs REST, Chart.js.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3 data-es="Sistema de Monitoreo de Servidores en Tiempo Real" data-en="Real-time Server Monitoring System">Sistema de Monitoreo de Servidores en Tiempo Real</h3>
-                        <p data-es="Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos." data-en="Development of a real-time monitoring dashboard for servers and web services. Includes alerts, performance metrics and automatic reports.">Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
-                        <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
+                        <h3>Sistema de Monitoreo de Servidores en Tiempo Real</h3>
+                        <p>Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
+                        <p><strong>Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3 data-es="Generación de sistema web/Citas médicas" data-en="Web system development/Medical appointments">Generación de sistema web/Citas médicas</h3>
-                        <p data-es="Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos." data-en="Online store for medical appointments with frontend (HTML/CSS/JS) and backend (PHP + MySQL). User management systems and bookings integrated with database.">Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
+                        <h3>Generación de sistema web/Citas médicas</h3>
+                        <p>Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
                     </div>
                     
                     <div class="project-item">
-                        <h3 data-es="Portal inmobiliario (Proyecto escolar)" data-en="Real estate portal (School project)">Portal inmobiliario (Proyecto escolar)</h3>
-                        <p data-es="Portal con CRUD de inmuebles y panel administrativo." data-en="Portal with property CRUD and administrative panel.">Portal con CRUD de inmuebles y panel administrativo.</p>
-                        <p><strong data-es="Herramientas:" data-en="Tools:">Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
+                        <h3>Portal inmobiliario (Proyecto escolar)</h3>
+                        <p>Portal con CRUD de inmuebles y panel administrativo.</p>
+                        <p><strong>Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
                     </div>
                 </div>
             </section>
             
             <section class="interests-section">
-                <h2><i class="fas fa-heart"></i> <span data-es="Intereses" data-en="Interests">Intereses</span></h2>
+                <h2><i class="fas fa-heart"></i> Intereses</h2>
                 <div class="interests">
                     <div class="interest">
                         <i class="fas fa-music"></i>
-                        <span data-es="Música" data-en="Music">Música</span>
+                        <span>Música</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-book"></i>
-                        <span data-es="Lectura" data-en="Reading">Lectura</span>
+                        <span>Lectura</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-laptop-code"></i>
-                        <span data-es="Tecnología" data-en="Technology">Tecnología</span>
+                        <span>Tecnología</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-gamepad"></i>
-                        <span data-es="Videojuegos" data-en="Video Games">Videojuegos</span>
+                        <span>Videojuegos</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-paint-brush"></i>
-                        <span data-es="Diseño" data-en="Design">Diseño</span>
+                        <span>Diseño</span>
                     </div>
                     <div class="interest">
                         <i class="fas fa-robot"></i>
-                        <span data-es="Inteligencia Artificial" data-en="Artificial Intelligence">Inteligencia Artificial</span>
+                        <span>Inteligencia Artificial</span>
                     </div>
                 </div>
             </section>
             
             <div class="buttons">
                 <button id="btn-print" class="btn btn-primary">
-                    <i class="fas fa-print"></i> <span data-es="Descargar PDF" data-en="Download PDF">Descargar PDF</span>
+                    <i class="fas fa-print"></i> Descargar PDF
                 </button>
                 <a href="https://github.com/WendySE20" class="btn btn-secondary" target="_blank">
-                    <i class="fab fa-github"></i> <span data-es="Ver GitHub" data-en="View GitHub">Ver GitHub</span>
+                    <i class="fab fa-github"></i> Ver GitHub
                 </a>
             </div>
         </div>
         
         <footer>
-            <p>© 2023 Wendy Salome Estrada - <span data-es="Desarrolladora Full Stack" data-en="Full Stack Developer">Desarrolladora Full Stack</span></p>
+            <p>© 2023 Wendy Salome Estrada - Desarrolladora Full Stack</p>
         </footer>
     </div>
 
     <script>
-        // Función para cambiar el idioma
-        function changeLanguage(lang) {
-            document.querySelectorAll('[data-es], [data-en]').forEach(element => {
-                if (element.hasAttribute(`data-${lang}`)) {
-                    const text = element.getAttribute(`data-${lang}`);
-                    if (text) element.textContent = text;
-                }
-            });
-        }
-
         // Función para mostrar notificación
         function showNotification(message, duration = 3000) {
             const notification = document.getElementById('notification');
@@ -839,10 +830,6 @@
                 notification.classList.remove('show');
             }, duration);
         }
-
-        // Event listeners para los botones de idioma
-        document.getElementById('btn-es').addEventListener('click', () => changeLanguage('es'));
-        document.getElementById('btn-en').addEventListener('click', () => changeLanguage('en'));
 
         // Función para generar PDF
         document.getElementById('btn-print').addEventListener('click', () => {
@@ -879,20 +866,16 @@
             };
             
             // Generar PDF
-            html2pdf().set(opt).from(element).save()
+            const pdfWorker = html2pdf().set(opt).from(element);
+            
+            // Iniciar la generación del PDF
+            pdfWorker.save()
                 .then(() => {
                     // Mostrar éxito
                     spinner.style.display = 'none';
                     successIcon.style.display = 'block';
-                    
-                    // Actualizar texto del modal
-                    if (document.documentElement.lang === 'es' || document.documentElement.lang === '') {
-                        modalTitle.textContent = '¡PDF Generado!';
-                        modalMessage.textContent = 'Tu CV ha sido descargado exitosamente.';
-                    } else {
-                        modalTitle.textContent = 'PDF Generated!';
-                        modalMessage.textContent = 'Your CV has been downloaded successfully.';
-                    }
+                    modalTitle.textContent = '¡PDF Generado!';
+                    modalMessage.textContent = 'Tu CV ha sido descargado exitosamente.';
                     
                     // Ocultar modal después de 2 segundos
                     setTimeout(() => {
@@ -906,23 +889,13 @@
                         setTimeout(() => {
                             spinner.style.display = 'block';
                             successIcon.style.display = 'none';
-                            
-                            // Restaurar texto original del modal
-                            if (document.documentElement.lang === 'es' || document.documentElement.lang === '') {
-                                modalTitle.textContent = 'Generando PDF...';
-                                modalMessage.textContent = 'Por favor espera, esto puede tomar unos segundos.';
-                            } else {
-                                modalTitle.textContent = 'Generating PDF...';
-                                modalMessage.textContent = 'Please wait, this may take a few seconds.';
-                            }
+                            modalTitle.textContent = 'Generando PDF...';
+                            modalMessage.textContent = 'Por favor espera, esto puede tomar unos segundos.';
                         }, 300);
                     }, 2000);
                     
                     // Mostrar notificación
-                    const successMsg = document.documentElement.lang === 'es' || document.documentElement.lang === '' 
-                        ? 'PDF descargado exitosamente' 
-                        : 'PDF downloaded successfully';
-                    showNotification(successMsg);
+                    showNotification('PDF descargado exitosamente');
                 })
                 .catch(error => {
                     console.error('Error generating PDF:', error);
@@ -935,10 +908,7 @@
                     document.querySelector('.buttons').style.display = 'flex';
                     
                     // Mostrar notificación de error
-                    const errorMsg = document.documentElement.lang === 'es' || document.documentElement.lang === '' 
-                        ? 'Error al generar el PDF. Intenta nuevamente.' 
-                        : 'Error generating PDF. Please try again.';
-                    showNotification(errorMsg, 5000);
+                    showNotification('Error al generar el PDF. Intenta nuevamente.', 5000);
                 });
         });
 
