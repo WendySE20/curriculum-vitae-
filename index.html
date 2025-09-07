@@ -364,6 +364,79 @@
             gap: 15px;
         }
         
+        /* Modal para la generación de PDF */
+        .pdf-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(74, 0, 224, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .success-icon {
+            color: #4CAF50;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        /* Notificación */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
         /* Estilos específicos para impresión/PDF */
         @media print {
             body {
@@ -525,6 +598,23 @@
     </style>
 </head>
 <body>
+    <!-- Modal para la generación de PDF -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="spinner" id="pdfSpinner"></div>
+            <div class="success-icon" id="pdfSuccess" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="modalTitle" data-es="Generando PDF..." data-en="Generating PDF...">Generando PDF...</h3>
+            <p id="modalMessage" data-es="Por favor espera, esto puede tomar unos segundos." data-en="Please wait, this may take a few seconds.">Por favor espera, esto puede tomar unos segundos.</p>
+        </div>
+    </div>
+    
+    <!-- Notificación -->
+    <div class="notification" id="notification">
+        <span id="notificationText"></span>
+    </div>
+    
     <div class="container" id="cv-content">
         <div class="language-controls">
             <button id="btn-es" class="btn btn-primary">
@@ -737,6 +827,19 @@
             });
         }
 
+        // Función para mostrar notificación
+        function showNotification(message, duration = 3000) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, duration);
+        }
+
         // Event listeners para los botones de idioma
         document.getElementById('btn-es').addEventListener('click', () => changeLanguage('es'));
         document.getElementById('btn-en').addEventListener('click', () => changeLanguage('en'));
@@ -744,6 +847,19 @@
         // Función para generar PDF
         document.getElementById('btn-print').addEventListener('click', () => {
             const element = document.getElementById('cv-content');
+            const modal = document.getElementById('pdfModal');
+            const spinner = document.getElementById('pdfSpinner');
+            const successIcon = document.getElementById('pdfSuccess');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            // Mostrar modal de carga
+            modal.classList.add('active');
+            
+            // Ocultar controles antes de generar el PDF
+            document.querySelector('.language-controls').style.display = 'none';
+            document.querySelector('.buttons').style.display = 'none';
+            
             const opt = {
                 margin: [10, 10, 10, 10],
                 filename: 'CV_Wendy_Salome_Estrada.pdf',
@@ -762,15 +878,68 @@
                 }
             };
             
-            // Ocultar controles antes de generar el PDF
-            document.querySelector('.language-controls').style.display = 'none';
-            document.querySelector('.buttons').style.display = 'none';
-            
-            html2pdf().set(opt).from(element).save().then(() => {
-                // Restaurar controles después de generar el PDF
-                document.querySelector('.language-controls').style.display = 'flex';
-                document.querySelector('.buttons').style.display = 'flex';
-            });
+            // Generar PDF
+            html2pdf().set(opt).from(element).save()
+                .then(() => {
+                    // Mostrar éxito
+                    spinner.style.display = 'none';
+                    successIcon.style.display = 'block';
+                    
+                    // Actualizar texto del modal
+                    if (document.documentElement.lang === 'es' || document.documentElement.lang === '') {
+                        modalTitle.textContent = '¡PDF Generado!';
+                        modalMessage.textContent = 'Tu CV ha sido descargado exitosamente.';
+                    } else {
+                        modalTitle.textContent = 'PDF Generated!';
+                        modalMessage.textContent = 'Your CV has been downloaded successfully.';
+                    }
+                    
+                    // Ocultar modal después de 2 segundos
+                    setTimeout(() => {
+                        modal.classList.remove('active');
+                        
+                        // Restaurar controles
+                        document.querySelector('.language-controls').style.display = 'flex';
+                        document.querySelector('.buttons').style.display = 'flex';
+                        
+                        // Restablecer modal para la próxima vez
+                        setTimeout(() => {
+                            spinner.style.display = 'block';
+                            successIcon.style.display = 'none';
+                            
+                            // Restaurar texto original del modal
+                            if (document.documentElement.lang === 'es' || document.documentElement.lang === '') {
+                                modalTitle.textContent = 'Generando PDF...';
+                                modalMessage.textContent = 'Por favor espera, esto puede tomar unos segundos.';
+                            } else {
+                                modalTitle.textContent = 'Generating PDF...';
+                                modalMessage.textContent = 'Please wait, this may take a few seconds.';
+                            }
+                        }, 300);
+                    }, 2000);
+                    
+                    // Mostrar notificación
+                    const successMsg = document.documentElement.lang === 'es' || document.documentElement.lang === '' 
+                        ? 'PDF descargado exitosamente' 
+                        : 'PDF downloaded successfully';
+                    showNotification(successMsg);
+                })
+                .catch(error => {
+                    console.error('Error generating PDF:', error);
+                    
+                    // Ocultar modal
+                    modal.classList.remove('active');
+                    
+                    // Restaurar controles
+                    document.querySelector('.language-controls').style.display = 'flex';
+                    document.querySelector('.buttons').style.display = 'flex';
+                    
+                    // Mostrar notificación de error
+                    const errorMsg = document.documentElement.lang === 'es' || document.documentElement.lang === '' 
+                        ? 'Error al generar el PDF. Intenta nuevamente.' 
+                        : 'Error generating PDF. Please try again.';
+                    showNotification(errorMsg, 5000);
+                });
         });
 
         // Efectos de animación al cargar la página
