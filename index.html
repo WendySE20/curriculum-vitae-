@@ -516,13 +516,15 @@
             opacity: 1;
         }
         
-        /* Estilos específicos para impresión/PDF */
+        /* Estilos específicos para impresión/PDF - MEJORADOS */
         @media print {
             body {
                 background: white;
                 padding: 0;
                 font-size: 12pt;
-                line-height: 1.4;
+                line-height: 1.5;
+                color: #000;
+                font-family: 'Arial', sans-serif;
             }
             
             .container {
@@ -530,6 +532,7 @@
                 border-radius: 0;
                 max-width: 100%;
                 margin: 0;
+                padding: 0;
             }
             
             header {
@@ -537,28 +540,42 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
                 padding: 25px 20px;
+                text-align: left;
+                display: block;
             }
             
             .profile-info h1 {
-                font-size: 22pt;
+                font-size: 24pt;
                 color: white;
+                margin-bottom: 10px;
+            }
+            
+            .profile-info h1::after {
+                display: none;
             }
             
             .specialty {
                 font-size: 14pt;
                 color: white;
+                margin: 10px 0;
             }
             
             .contact-info {
-                justify-content: space-around;
+                justify-content: flex-start;
+                margin-top: 20px;
+            }
+            
+            .contact-item {
+                margin-bottom: 8px;
             }
             
             .contact-item a {
                 color: white;
+                text-decoration: none;
             }
             
             .content {
-                padding: 20px;
+                padding: 25px;
             }
             
             section {
@@ -566,14 +583,20 @@
                 border: 1px solid #ddd;
                 border-radius: 5px;
                 margin-bottom: 20px;
-                padding: 15px;
+                padding: 20px;
                 page-break-inside: avoid;
             }
             
             h2 {
                 font-size: 16pt;
                 color: #4a00e0;
-                border-bottom: 1px solid #8e2de2;
+                border-bottom: 2px solid #8e2de2;
+                padding-bottom: 8px;
+                margin-bottom: 15px;
+            }
+            
+            h2 i {
+                display: none;
             }
             
             .education-grid, .projects-grid, .skills-container {
@@ -584,7 +607,9 @@
             .education-item, .project-item, .skill-category {
                 box-shadow: none;
                 border: 1px solid #eee;
+                border-left: 4px solid #8e2de2;
                 page-break-inside: avoid;
+                background: #f9f9f9 !important;
             }
             
             .skill {
@@ -592,6 +617,11 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
                 color: white;
+                display: inline-block;
+                margin: 4px;
+                padding: 5px 12px;
+                border-radius: 15px;
+                font-size: 10pt;
             }
             
             .btn, .language-controls {
@@ -605,7 +635,7 @@
             
             .contact-item a::after {
                 content: " (" attr(href) ")";
-                font-size: 0.7rem;
+                font-size: 0.8rem;
                 word-break: break-all;
             }
             
@@ -613,19 +643,35 @@
                 display: none;
             }
             
+            /* Mejorar espaciado para impresión */
+            .profile-text {
+                text-align: left;
+                font-size: 11pt;
+            }
+            
+            /* Ajustar tamaño de fuentes para impresión */
+            .education-item p, .project-item p {
+                font-size: 11pt;
+            }
+            
             /* Asegurar que no se corten elementos entre páginas */
             .education-item, .project-item, .skill-category {
                 page-break-inside: avoid;
             }
             
-            /* Mejorar espaciado para impresión */
-            .profile-text {
-                text-align: left;
+            /* Estilo para intereses en impresión */
+            .interests {
+                justify-content: flex-start;
             }
             
-            /* Ajustar tamaño de fuentes para impresión */
-            .profile-text, .education-item p, .project-item p {
-                font-size: 11pt;
+            .interest {
+                background: #f0f0f0;
+                padding: 8px 15px;
+                margin: 5px;
+            }
+            
+            .interest i {
+                display: none;
             }
         }
         
@@ -961,7 +1007,8 @@
                     scale: 2,
                     useCORS: true,
                     logging: false,
-                    letterRendering: true
+                    letterRendering: true,
+                    backgroundColor: '#FFFFFF'
                 },
                 jsPDF: { 
                     unit: 'mm', 
