@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Wendy Salome Estrada | Software Developer</title>
+    <title>CV - Wendy Salomé Estrada | Desarrolladora Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
@@ -57,6 +57,14 @@
             margin-bottom: 10px;
         }
         
+        .specialty {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
         .title {
             font-size: 1.2rem;
             font-weight: 400;
@@ -75,6 +83,17 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+            color: #ffeb3b;
         }
         
         section {
@@ -231,6 +250,10 @@
                 font-size: 2rem;
             }
             
+            .specialty {
+                font-size: 1.1rem;
+            }
+            
             .buttons {
                 flex-direction: column;
                 align-items: center;
@@ -276,17 +299,21 @@
         
         <header>
             <div class="profile-info">
-                <h1 data-es="WENDY SALOMÉ ESTRADA" data-en="WENDY SALOMÉ ESTRADA">WENDY SALOME ESTRADA</h1>
-                <p class="title" data-es="Ingeniera en Desarrollo y Gestión de Software" data-en="Software Development and Management Engineer">Ingeniera en Desarrollo y Gestión de Software</p>
+                <h1 data-es="WENDY SALOMÉ ESTRADA" data-en="WENDY SALOMÉ ESTRADA">WENDY SALOMÉ ESTRADA</h1>
+                <p class="specialty" data-es="Desarrollo Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos" data-en="Full Stack Development with Experience in Mobile Applications and Project Management">Desarrollo Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
             </div>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>salomewendy524@outlook.com</span>
+                    <a href="mailto:salomewendy524@outlook.com">salomewendy524@outlook.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+525569030109">55 6903 0109</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-github"></i>
-                    <a href="https://github.com/WendySE20" style="color: white;">github.com/WendySE20</a>
+                    <a href="https://github.com/WendySE20" target="_blank">github.com/WendySE20</a>
                 </div>
             </div>
         </header>
@@ -303,13 +330,11 @@
                 <p class="date" data-es="Título en trámite" data-en="Degree in process">Título en trámite</p>
             </div>
             <div class="education-item">
-                <h3 data-es="Técnico en Programacion" data-en="Professional Technician in Computer Equipment Support and Maintenance">Técnico en Programacion</h3>
-                <p class="date" data-es="Título Profesional" data-en="Title and professional license">Título Profesional</p>
+                <h3 data-es="Técnico Profesional en Soporte y Mantenimiento de Equipo de Cómputo" data-en="Professional Technician in Computer Equipment Support and Maintenance">Técnico Profesional en Soporte y Mantenimiento de Equipo de Cómputo</h3>
+                <p class="date" data-es="Título y cédula profesional" data-en="Title and professional license">Título y cédula profesional</p>
             </div>
             <div class="education-item">
-                <h3 data-es="TSU en Desarrollo de Software Multiplataforma" data-en>TSU in Multiplatform Software Development">TSU en Desarrollo de Software Multiplataforma</h3>
-                <p class="date" data-es="Título Profesional" data-en="Title and professional license">Título Profesional</p>
-
+                <h3 data-es="TSU en Desarrollo de Software Multiplataforma" data-en="TSU in Multiplatform Software Development">TSU en Desarrollo de Software Multiplataforma</h3>
             </div>
         </section>
         
@@ -424,7 +449,7 @@
             <button id="btn-print" class="btn btn-primary">
                 <i class="fas fa-print"></i> <span data-es="Imprimir / PDF" data-en="Print / PDF">Imprimir / PDF</span>
             </button>
-            <a href="https://github.com/WendySE20" class="btn btn-secondary">
+            <a href="https://github.com/WendySE20" class="btn btn-secondary" target="_blank">
                 <i class="fab fa-github"></i> <span data-es="Ver GitHub" data-en="View GitHub">Ver GitHub</span>
             </a>
         </div>
