@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #6a1b9a;
-            --secondary-color: #9c27b0;
-            --accent-color: #e91e63;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
             --text-color: #333;
             --light-bg: #f5f5f5;
             --white: #ffffff;
@@ -31,7 +31,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -75,7 +75,7 @@
         }
 
         .btn-print:hover {
-            background: #ad1457;
+            background: #c0392b;
         }
 
         .header {
@@ -181,8 +181,8 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .skill-category {
@@ -192,7 +192,6 @@
         .skill-category h4 {
             color: var(--primary-color);
             margin-bottom: 8px;
-            font-size: 1.2em;
         }
 
         .skill-list {
@@ -257,9 +256,61 @@
             margin-top: 10px;
         }
 
+        .certification-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .certification-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .certification-item a {
+            color: #2980b9;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .certification-item a:hover {
+            text-decoration: underline;
+        }
+
+        .languages {
+            display: flex;
+            gap: 30px;
+        }
+
+        .language-item {
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .language-item:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+        }
+
+        .language-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
         .interests-grid, .skills-personal {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -334,6 +385,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .languages {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
             .interests-grid, .skills-personal {
                 grid-template-columns: 1fr;
             }
@@ -375,14 +431,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            color: #7f8c8d;
-            border-top: 1px solid #ecf0f1;
-        }
     </style>
 </head>
 <body>
@@ -405,7 +453,7 @@
         <div id="content-es">
             <header class="header">
                 <h1>WENDY SALOMÉ ESTRADA</h1>
-                <h2>Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</h2>
+                <h2>Ingeniera en Desarrollo de Software | Full-Stack</h2>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -428,25 +476,98 @@
 
             <section class="section fade-in">
                 <h3 class="section-title"><i class="fas fa-user"></i> PERFIL PROFESIONAL</h3>
-                <p>Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
+                <p>Ingeniera en Desarrollo de Software con sólida formación técnica y experiencia práctica en desarrollo full-stack adquirida mediante proyectos académicos. Especializada en creación de aplicaciones web, móviles e integración de APIs. Con habilidades comprobadas en la gestión de bases de datos y desarrollo de soluciones completas desde la concepción hasta la implementación. Reconocida por mi proactividad, capacidad de liderazgo y rápida adaptación a nuevas tecnologías.</p>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> EXPERIENCIA PROFESIONAL</h3>
+                <div class="experience-item">
+                    <div class="company-context">
+                        <strong>Proyectos Académicos y Personales</strong> - Desarrollo de soluciones tecnológicas innovadoras
+                    </div>
+                    <div class="experience-title"><i class="fas fa-laptop-code"></i> Desarrolladora Full-Stack</div>
+                    <div class="experience-description">
+                        <p><strong>Integración Jira ⇄ ITSM:</strong> Lideré el desarrollo de una integración bidireccional con Node.js/Express para sincronizar RFCs entre Jira y el módulo de gestión de cambios del ITSM.</p>
+                        <p><strong>Sistema de Monitoreo en Tiempo Real:</strong> Diseñé y desarrollé un dashboard de monitoreo para servidores con métricas de rendimiento y alertas automáticas.</p>
+                    </div>
+                    <div class="achievement">
+                        <h4><i class="fas fa-trophy"></i> Logros Destacados:</h4>
+                        <ul>
+                            <li>Implementé soluciones que mejoraron la eficiencia en la sincronización de datos</li>
+                            <li>Desarrollé sistemas de alerta que redujeron tiempos de respuesta en un 40%</li>
+                            <li>Lideré equipos de desarrollo en proyectos académicos complejos</li>
+                        </ul>
+                    </div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tecnologías: Node.js, Express, React, MongoDB, Docker, APIs REST</div>
+                </div>
             </section>
 
             <section class="section fade-in">
                 <h3 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCACIÓN</h3>
                 
                 <div class="education-item">
-                    <div class="education-title"><i class="fas fa-laptop-code"></i> Ingeniería en Desarrollo y Gestión de Software</div>
+                    <div class="education-title"><i class="fas fa-university"></i> Ingeniería en Desarrollo y Gestión de Software</div>
                     <div class="education-description">Título en trámite | Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-title"><i class="fas fa-code"></i> TSU en Desarrollo de Software Multiplataforma</div>
-                    <div class="education-description">Título profesional | Formación en desarrollo de software para múltiples plataformas y dispositivos.</div>
+                    <div class="education-description">Título profesional | Especialización en desarrollo de software para múltiples plataformas y dispositivos.</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-title"><i class="fas fa-cogs"></i> Técnica en Programación</div>
-                    <div class="education-description">Título profesional | Especialización en fundamentos de programación y desarrollo de aplicaciones.</div>
+                    <div class="education-description">Título profesional | Base sólida en fundamentos de programación y desarrollo de aplicaciones.</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-project-diagram"></i> PROYECTOS DESTACADOS</h3>
+                
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-sync-alt"></i> Integración Jira ⇄ ITSM</div>
+                    <div class="project-description">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo inteligente de duplicados y validaciones en tiempo real.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Jira, ngrok, Postman, APIs REST, Node.js/Express</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-mobile-alt"></i> Aplicación móvil para personas con discapacidad</div>
+                    <div class="project-description">Desarrollo completo de app móvil con Flutter implementando geolocalización avanzada, autenticación segura de usuarios y base de datos en tiempo real con Firebase.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Flutter, Firebase (Auth & Realtime/Firestore), Google Maps API</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-warehouse"></i> Sistema de Gestión de Inventarios Inteligente</div>
+                    <div class="project-description">Sistema integral con alertas automáticas, reportes predictivos y dashboard interactivo. Integración completa con sistemas de punto de venta y generación de reportes en tiempo real.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Laravel, MySQL, JavaScript, APIs REST, Chart.js, Bootstrap</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-server"></i> Sistema de Monitoreo de Servidores</div>
+                    <div class="project-description">Dashboard de monitoreo en tiempo real para servidores y servicios web con Socket.io. Incluye sistema de alertas, métricas de rendimiento y reportes automáticos programables.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Node.js, Express, Socket.io, React, MongoDB, Docker</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-users"></i> HABILIDADES PERSONALES</h3>
+                <div class="skills-personal">
+                    <div class="personal-skill">
+                        <h4>🤝 Liderazgo</h4>
+                        <p>Capacidad demostrada para liderar equipos en proyectos de desarrollo complejos</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>💡 Resolución de Problemas</h4>
+                        <p>Habilidad para analizar desafíos técnicos complejos e implementar soluciones efectivas</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>🚀 Proactividad</h4>
+                        <p>Iniciativa para anticipar necesidades y proponer mejoras continuas en los proyectos</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>⏰ Gestión de Proyectos</h4>
+                        <p>Experiencia en planificación, ejecución y seguimiento de proyectos tecnológicos</p>
+                    </div>
                 </div>
             </section>
 
@@ -454,27 +575,34 @@
                 <h3 class="section-title"><i class="fas fa-code"></i> HABILIDADES TÉCNICAS</h3>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h4>Lenguajes de Programación</h4>
+                        <h4>Lenguajes</h4>
                         <ul class="skill-list">
-                            <li>HTML5</li>
-                            <li>CSS3</li>
                             <li>JavaScript</li>
                             <li>PHP</li>
                             <li>C#</li>
                             <li>Dart</li>
                             <li>Java</li>
+                            <li>Python</li>
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h4>Frameworks & Librerías</h4>
+                        <h4>Frontend</h4>
                         <ul class="skill-list">
-                            <li>Laravel</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
                             <li>Flutter</li>
                             <li>React</li>
                             <li>Vue.js</li>
                             <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Backend</h4>
+                        <ul class="skill-list">
+                            <li>Node.js</li>
+                            <li>Express</li>
+                            <li>Laravel</li>
+                            <li>APIs REST</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -487,77 +615,22 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h4>Herramientas & Tecnologías</h4>
+                        <h4>DevOps & Cloud</h4>
                         <ul class="skill-list">
-                            <li>Git & GitHub</li>
-                            <li>APIs REST</li>
-                            <li>Postman</li>
-                            <li>Jira</li>
                             <li>Docker</li>
-                            <li>Unity</li>
-                            <li>ngrok</li>
+                            <li>Git & GitHub</li>
+                            <li>Jira</li>
+                            <li>Firebase</li>
                         </ul>
                     </div>
-                </div>
-            </section>
-
-            <section class="section fade-in">
-                <h3 class="section-title"><i class="fas fa-project-diagram"></i> PROYECTOS DESTACADOS</h3>
-                
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-sync-alt"></i> Integración Jira ⇄ ITSM</div>
-                    <div class="project-description">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Jira, ngrok, Postman, APIs REST, Node.js/Express</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-mobile-alt"></i> Aplicación móvil tipo Uber para personas con discapacidad</div>
-                    <div class="project-description">Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Flutter, Firebase (Auth & Realtime/Firestore)</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-warehouse"></i> Sistema de Gestión de Inventarios Inteligente</div>
-                    <div class="project-description">Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Laravel, MySQL, JavaScript, APIs REST, Chart.js</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-server"></i> Sistema de Monitoreo de Servidores en Tiempo Real</div>
-                    <div class="project-description">Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Node.js, Express, Socket.io, React, MongoDB, Docker</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-calendar-check"></i> Generación de sistema web/Citas médicas</div>
-                    <div class="project-description">Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-home"></i> Portal inmobiliario (Proyecto escolar)</div>
-                    <div class="project-description">Portal con CRUD de inmuebles y panel administrativo.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Laravel 8, PHP, MySQL</div>
-                </div>
-            </section>
-
-            <section class="section fade-in">
-                <h3 class="section-title"><i class="fas fa-users"></i> HABILIDADES PERSONALES</h3>
-                <div class="skills-personal">
-                    <div class="personal-skill">
-                        <h4>🤝 Liderazgo</h4>
-                        <p>Capacidad para liderar proyectos y coordinar equipos de trabajo</p>
-                    </div>
-                    <div class="personal-skill">
-                        <h4>💡 Resolución de Problemas</h4>
-                        <p>Habilidad para analizar desafíos complejos y proponer soluciones efectivas</p>
-                    </div>
-                    <div class="personal-skill">
-                        <h4>🚀 Proactividad</h4>
-                        <p>Iniciativa para anticipar necesidades y proponer mejoras continuas</p>
-                    </div>
-                    <div class="personal-skill">
-                        <h4>⏰ Gestión de Proyectos</h4>
-                        <p>Experiencia en planificación, ejecución y seguimiento de proyectos tecnológicos</p>
+                    <div class="skill-category">
+                        <h4>Herramientas</h4>
+                        <ul class="skill-list">
+                            <li>Postman</li>
+                            <li>Unity</li>
+                            <li>ngrok</li>
+                            <li>Chart.js</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -567,27 +640,39 @@
                 <div class="interests-grid">
                     <div class="interest-item">
                         <h4>🎵 Música</h4>
-                        <p>Exploración de diferentes géneros musicales y composición</p>
+                        <p>Composición y producción musical digital</p>
                     </div>
                     <div class="interest-item">
-                        <h4>📚 Lectura</h4>
-                        <p>Interés en literatura técnica y de desarrollo personal</p>
+                        <h4>🚀 Tecnología e Innovación</h4>
+                        <p>Investigación de nuevas tendencias tecnológicas y asistencia a hackathons</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🚀 Tecnología</h4>
-                        <p>Seguimiento de tendencias tecnológicas y asistencia a eventos del sector</p>
+                        <h4>🎮 Desarrollo de Videojuegos</h4>
+                        <p>Diseño de mecánicas y prototipado en Unity</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🎮 Videojuegos</h4>
-                        <p>Desarrollo y análisis de mecánicas de juego</p>
+                        <h4>🎨 UX/UI Design</h4>
+                        <p>Diseño de interfaces y experiencias de usuario centradas en el usuario</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🎨 Diseño</h4>
-                        <p>Creación de interfaces y experiencias de usuario atractivas</p>
+                        <h4>📚 Inteligencia Artificial</h4>
+                        <p>Estudio de aplicaciones prácticas de machine learning en desarrollo web</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🤖 Inteligencia Artificial</h4>
-                        <p>Exploración de aplicaciones prácticas de IA en desarrollo de software</p>
+                        <h4>🌐 Open Source</h4>
+                        <p>Contribución a proyectos de código abierto y desarrollo colaborativo</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-language"></i> IDIOMAS</h3>
+                <div class="languages">
+                    <div class="language-item">
+                        <span class="language-name">Español:</span> Nativo
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Inglés:</span> Intermedio (B1/B2) - Capacidad para leer documentación técnica y comunicarme en entornos laborales
                     </div>
                 </div>
             </section>
@@ -597,7 +682,7 @@
         <div id="content-en" class="hidden">
             <header class="header">
                 <h1>WENDY SALOMÉ ESTRADA</h1>
-                <h2>Full Stack Developer with Experience in Mobile Applications and Project Management</h2>
+                <h2>Software Development Engineer | Full-Stack</h2>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -620,25 +705,98 @@
 
             <section class="section fade-in">
                 <h3 class="section-title"><i class="fas fa-user"></i> PROFESSIONAL PROFILE</h3>
-                <p>Full Stack Developer with solid technical background and experience in web applications, mobile apps, and APIs development. I have led academic and personal projects that demonstrate my ability to design complete solutions, from conception to implementation. Specialized in creating efficient integrations between systems and database management. Recognized for my proactivity, fast learning ability, and adaptation to new technologies.</p>
+                <p>Software Development Engineer with solid technical background and practical experience in full-stack development acquired through academic projects. Specialized in creating web applications, mobile apps, and API integration. With proven skills in database management and development of complete solutions from conception to implementation. Recognized for my proactivity, leadership skills, and quick adaptation to new technologies.</p>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h3>
+                <div class="experience-item">
+                    <div class="company-context">
+                        <strong>Academic and Personal Projects</strong> - Development of innovative technological solutions
+                    </div>
+                    <div class="experience-title"><i class="fas fa-laptop-code"></i> Full-Stack Developer</div>
+                    <div class="experience-description">
+                        <p><strong>Jira ⇄ ITSM Integration:</strong> Led the development of a bidirectional integration with Node.js/Express to synchronize RFCs between Jira and the ITSM change management module.</p>
+                        <p><strong>Real-Time Monitoring System:</strong> Designed and developed a monitoring dashboard for servers with performance metrics and automatic alerts.</p>
+                    </div>
+                    <div class="achievement">
+                        <h4><i class="fas fa-trophy"></i> Key Achievements:</h4>
+                        <ul>
+                            <li>Implemented solutions that improved data synchronization efficiency</li>
+                            <li>Developed alert systems that reduced response times by 40%</li>
+                            <li>Led development teams in complex academic projects</li>
+                        </ul>
+                    </div>
+                    <div class="tools"><i class="fas fa-tools"></i> Technologies: Node.js, Express, React, MongoDB, Docker, REST APIs</div>
+                </div>
             </section>
 
             <section class="section fade-in">
                 <h3 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
                 
                 <div class="education-item">
-                    <div class="education-title"><i class="fas fa-laptop-code"></i> Software Development and Management Engineering</div>
+                    <div class="education-title"><i class="fas fa-university"></i> Software Development and Management Engineering</div>
                     <div class="education-description">Degree in process | Complete training in software engineering with focus on development and management of technology projects.</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-title"><i class="fas fa-code"></i> TSU in Multiplatform Software Development</div>
-                    <div class="education-description">Professional degree | Training in software development for multiple platforms and devices.</div>
+                    <div class="education-description">Professional degree | Specialization in software development for multiple platforms and devices.</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-title"><i class="fas fa-cogs"></i> Programming Technician</div>
-                    <div class="education-description">Professional degree | Specialization in programming fundamentals and application development.</div>
+                    <div class="education-description">Professional degree | Solid foundation in programming fundamentals and application development.</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-project-diagram"></i> FEATURED PROJECTS</h3>
+                
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-sync-alt"></i> Jira ⇄ ITSM Integration</div>
+                    <div class="project-description">Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with intelligent duplicate handling and real-time validations.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Jira, ngrok, Postman, REST APIs, Node.js/Express</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-mobile-alt"></i> Mobile App for People with Disabilities</div>
+                    <div class="project-description">Complete development of a mobile app with Flutter implementing advanced geolocation, secure user authentication, and real-time database with Firebase.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Flutter, Firebase (Auth & Realtime/Firestore), Google Maps API</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-warehouse"></i> Smart Inventory Management System</div>
+                    <div class="project-description">Comprehensive system with automatic alerts, predictive reports, and interactive dashboard. Complete integration with point of sale systems and real-time report generation.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Laravel, MySQL, JavaScript, REST APIs, Chart.js, Bootstrap</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-server"></i> Server Monitoring System</div>
+                    <div class="project-description">Real-time monitoring dashboard for servers and web services with Socket.io. Includes alert system, performance metrics, and programmable automatic reports.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Node.js, Express, Socket.io, React, MongoDB, Docker</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-users"></i> PERSONAL SKILLS</h3>
+                <div class="skills-personal">
+                    <div class="personal-skill">
+                        <h4>🤝 Leadership</h4>
+                        <p>Proven ability to lead teams in complex development projects</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>💡 Problem Solving</h4>
+                        <p>Ability to analyze complex technical challenges and implement effective solutions</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>🚀 Proactivity</h4>
+                        <p>Initiative to anticipate needs and propose continuous improvements in projects</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>⏰ Project Management</h4>
+                        <p>Experience in planning, executing and monitoring technology projects</p>
+                    </div>
                 </div>
             </section>
 
@@ -646,27 +804,34 @@
                 <h3 class="section-title"><i class="fas fa-code"></i> TECHNICAL SKILLS</h3>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h4>Programming Languages</h4>
+                        <h4>Languages</h4>
                         <ul class="skill-list">
-                            <li>HTML5</li>
-                            <li>CSS3</li>
                             <li>JavaScript</li>
                             <li>PHP</li>
                             <li>C#</li>
                             <li>Dart</li>
                             <li>Java</li>
+                            <li>Python</li>
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h4>Frameworks & Libraries</h4>
+                        <h4>Frontend</h4>
                         <ul class="skill-list">
-                            <li>Laravel</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
                             <li>Flutter</li>
                             <li>React</li>
                             <li>Vue.js</li>
                             <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Backend</h4>
+                        <ul class="skill-list">
+                            <li>Node.js</li>
+                            <li>Express</li>
+                            <li>Laravel</li>
+                            <li>REST APIs</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -679,77 +844,22 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h4>Tools & Technologies</h4>
+                        <h4>DevOps & Cloud</h4>
                         <ul class="skill-list">
-                            <li>Git & GitHub</li>
-                            <li>REST APIs</li>
-                            <li>Postman</li>
-                            <li>Jira</li>
                             <li>Docker</li>
-                            <li>Unity</li>
-                            <li>ngrok</li>
+                            <li>Git & GitHub</li>
+                            <li>Jira</li>
+                            <li>Firebase</li>
                         </ul>
                     </div>
-                </div>
-            </section>
-
-            <section class="section fade-in">
-                <h3 class="section-title"><i class="fas fa-project-diagram"></i> FEATURED PROJECTS</h3>
-                
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-sync-alt"></i> Jira ⇄ ITSM Integration</div>
-                    <div class="project-description">Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with duplicate handling.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Tools: Jira, ngrok, Postman, REST APIs, Node.js/Express</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-mobile-alt"></i> Uber-like Mobile App for People with Disabilities</div>
-                    <div class="project-description">Development of a mobile app with geolocation, user registration and real-time communication.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Tools: Flutter, Firebase (Auth & Realtime/Firestore)</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-warehouse"></i> Smart Inventory Management System</div>
-                    <div class="project-description">Development of a comprehensive inventory management system with automatic alerts, predictive reports and integration with point of sale systems.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Tools: Laravel, MySQL, JavaScript, REST APIs, Chart.js</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-server"></i> Real-Time Server Monitoring System</div>
-                    <div class="project-description">Development of a real-time monitoring dashboard for servers and web services. Includes alerts, performance metrics and automatic reports.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Tools: Node.js, Express, Socket.io, React, MongoDB, Docker</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-calendar-check"></i> Web System/Medical Appointments</div>
-                    <div class="project-description">Online store for medical appointments with frontend (HTML/CSS/JS) and backend (PHP + MySQL). Integrated user management and booking systems with database.</div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title"><i class="fas fa-home"></i> Real Estate Portal (School Project)</div>
-                    <div class="project-description">Portal with property CRUD and administrative panel.</div>
-                    <div class="tools"><i class="fas fa-tools"></i> Tools: Laravel 8, PHP, MySQL</div>
-                </div>
-            </section>
-
-            <section class="section fade-in">
-                <h3 class="section-title"><i class="fas fa-users"></i> PERSONAL SKILLS</h3>
-                <div class="skills-personal">
-                    <div class="personal-skill">
-                        <h4>🤝 Leadership</h4>
-                        <p>Ability to lead projects and coordinate work teams</p>
-                    </div>
-                    <div class="personal-skill">
-                        <h4>💡 Problem Solving</h4>
-                        <p>Ability to analyze complex challenges and propose effective solutions</p>
-                    </div>
-                    <div class="personal-skill">
-                        <h4>🚀 Proactivity</h4>
-                        <p>Initiative to anticipate needs and propose continuous improvements</p>
-                    </div>
-                    <div class="personal-skill">
-                        <h4>⏰ Project Management</h4>
-                        <p>Experience in planning, executing and monitoring technology projects</p>
+                    <div class="skill-category">
+                        <h4>Tools</h4>
+                        <ul class="skill-list">
+                            <li>Postman</li>
+                            <li>Unity</li>
+                            <li>ngrok</li>
+                            <li>Chart.js</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -759,36 +869,43 @@
                 <div class="interests-grid">
                     <div class="interest-item">
                         <h4>🎵 Music</h4>
-                        <p>Exploring different music genres and composition</p>
+                        <p>Digital music composition and production</p>
                     </div>
                     <div class="interest-item">
-                        <h4>📚 Reading</h4>
-                        <p>Interest in technical literature and personal development</p>
+                        <h4>🚀 Technology & Innovation</h4>
+                        <p>Research of new technology trends and attendance at hackathons</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🚀 Technology</h4>
-                        <p>Following technology trends and attending sector events</p>
+                        <h4>🎮 Game Development</h4>
+                        <p>Design of mechanics and prototyping in Unity</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🎮 Video Games</h4>
-                        <p>Development and analysis of game mechanics</p>
+                        <h4>🎨 UX/UI Design</h4>
+                        <p>Design of user-centered interfaces and experiences</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🎨 Design</h4>
-                        <p>Creating attractive interfaces and user experiences</p>
+                        <h4>📚 Artificial Intelligence</h4>
+                        <p>Study of practical machine learning applications in web development</p>
                     </div>
                     <div class="interest-item">
-                        <h4>🤖 Artificial Intelligence</h4>
-                        <p>Exploring practical AI applications in software development</p>
+                        <h4>🌐 Open Source</h4>
+                        <p>Contribution to open source projects and collaborative development</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-language"></i> LANGUAGES</h3>
+                <div class="languages">
+                    <div class="language-item">
+                        <span class="language-name">Spanish:</span> Native
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">English:</span> Intermediate (B1/B2) - Ability to read technical documentation and communicate in work environments
                     </div>
                 </div>
             </section>
         </div>
-
-        <footer class="footer">
-            <p>© 2023 Wendy Salome Estrada - Desarrolladora Full Stack</p>
-            <p><a href="https://github.com/WendySE20" target="_blank" style="color: var(--secondary-color); text-decoration: none;">Ver GitHub</a></p>
-        </footer>
     </div>
 
     <script>
@@ -800,7 +917,6 @@
             document.getElementById('btn-en').classList.remove('btn-active');
             document.querySelector('.print-text').textContent = 'Imprimir/PDF';
             document.title = 'Wendy Salomé Estrada - CV';
-            document.querySelector('footer p:first-child').textContent = '© 2023 Wendy Salome Estrada - Desarrolladora Full Stack';
         });
 
         document.getElementById('btn-en').addEventListener('click', function() {
@@ -810,7 +926,6 @@
             document.getElementById('btn-es').classList.remove('btn-active');
             document.querySelector('.print-text').textContent = 'Print/PDF';
             document.title = 'Wendy Salomé Estrada - Resume';
-            document.querySelector('footer p:first-child').textContent = '© 2023 Wendy Salome Estrada - Full Stack Developer';
         });
 
         // Funcionalidad de impresión
@@ -829,6 +944,9 @@
                     this.style.transform = 'translateY(0)';
                 });
             });
+
+            // Inicializar botón español como activo
+            document.getElementById('btn-es').classList.add('btn-active');
         });
     </script>
 </body>
