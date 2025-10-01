@@ -3,866 +3,831 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Wendy Salome Estrada | Desarrolladora Full Stack</title>
+    <title>Wendy Salomé Estrada - CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a00e0;
-            --secondary-color: #8e2de2;
-            --accent-color: #ff6b6b;
+            --primary-color: #6a1b9a;
+            --secondary-color: #9c27b0;
+            --accent-color: #e91e63;
             --text-color: #333;
-            --light-bg: #f8f9fa;
+            --light-bg: #f5f5f5;
             --white: #ffffff;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            background-color: var(--light-bg);
             color: var(--text-color);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px;
-            min-height: 100vh;
+            line-height: 1.6;
+            transition: var(--transition);
         }
-        
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            background-color: var(--white);
-            box-shadow: var(--card-shadow);
-            border-radius: 15px;
-            overflow: hidden;
-            animation: fadeIn 0.8s ease;
+            padding: 20px;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .header-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
-        
-        header {
+
+        .language-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-active {
+            background: var(--secondary-color) !important;
+        }
+
+        .btn-print {
+            background: var(--accent-color);
+        }
+
+        .btn-print:hover {
+            background: #ad1457;
+        }
+
+        .header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
-            padding: 40px;
+            padding: 40px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
         }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: rotate(30deg);
+
+        .header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
-        
-        .profile-info h1 {
-            font-size: 2.8rem;
+
+        .header h1 {
+            font-size: 2.5em;
             margin-bottom: 10px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
         }
-        
-        .profile-info h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
+
+        .header h2 {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 20px;
         }
-        
-        .specialty {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 15px 0;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
+
         .contact-info {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            margin-top: 25px;
-            position: relative;
-            z-index: 1;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: transform 0.3s ease;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: var(--transition);
         }
-        
+
         .contact-item:hover {
-            transform: translateY(-3px);
-        }
-        
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item a:hover {
-            color: #ffeb3b;
-        }
-        
-        .contact-item i {
-            font-size: 1.2rem;
-            width: 25px;
-            text-align: center;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        section {
-            margin-bottom: 40px;
-            padding: 25px;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            page-break-inside: avoid;
-        }
-        
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--secondary-color);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-        }
-        
-        h2 i {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-        }
-        
-        .profile-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-        
-        .education-grid, .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .education-item, .project-item {
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--secondary-color);
-            page-break-inside: avoid;
-        }
-        
-        .education-item:hover, .project-item:hover {
-            background: linear-gradient(135deg, var(--light-bg) 0%, #e6eef7 100%);
-            transform: translateX(5px);
-        }
-        
-        .education-item h3, .project-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .date {
-            color: var(--secondary-color);
-            font-style: italic;
-            margin-bottom: 12px;
-            display: block;
-            font-weight: 500;
-        }
-        
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            page-break-inside: avoid;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow);
-        }
-        
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .skill-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 3px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-        
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        
-        .skill {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: var(--white);
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        
-        .skill:hover {
+            background: rgba(255,255,255,0.3);
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(142, 45, 226, 0.3);
         }
-        
-        .interests {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        
-        .interest {
-            background: var(--light-bg);
-            padding: 12px 25px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .interest:hover {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 14px 30px;
-            border-radius: 50px;
+
+        .contact-item a {
+            color: var(--white);
             text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+        }
+
+        .section {
+            background: var(--white);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
-        
-        .btn::before {
+
+        .section::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: var(--transition);
         }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--accent-color), #ff8e8e);
-            color: var(--white);
-        }
-        
-        .btn:hover {
+
+        .section:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        footer {
-            text-align: center;
-            padding: 25px;
-            margin-top: 30px;
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-            background: var(--light-bg);
-            border-top: 1px solid rgba(0,0,0,0.05);
+
+        .section:hover::before {
+            left: 0;
         }
-        
-        .language-controls {
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
             display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 15px;
+            align-items: center;
+            gap: 10px;
         }
-        
-        /* Notificación */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            background: var(--primary-color);
-            color: white;
+
+        .section-title i {
+            color: var(--secondary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            background: #ecf0f1;
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .skill-list li:hover {
+            background: #d5dbdb;
+            transform: translateX(5px);
+        }
+
+        .project-item, .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+            transition: var(--transition);
+        }
+
+        .project-item:hover, .experience-item:hover, .education-item:hover {
+            background: #f8f9fa;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
         }
-        
-        .notification.show {
-            transform: translateY(0);
-            opacity: 1;
+
+        .project-item:last-child, .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
         }
-        
-        /* Estilos para impresión */
-        @media print {
-            body, html {
-                background: white !important;
-                width: 100% !important;
-                height: auto !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            
-            .container {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                max-width: 100% !important;
-                margin: 0 !important;
-            }
-            
-            .language-controls, .buttons {
-                display: none !important;
-            }
-            
-            header {
-                background: #4a00e0 !important;
-            }
-            
-            header::before {
-                display: none !important;
-            }
-            
-            .skill {
-                background: #8e2de2 !important;
-            }
-            
-            .btn::before, .btn:hover::before {
-                display: none !important;
-            }
-            
-            section:hover, .education-item:hover, .project-item:hover, 
-            .skill-category:hover, .interest:hover, .btn:hover {
-                transform: none !important;
-                box-shadow: none !important;
-            }
-            
-            a {
-                color: #0000EE !important;
-                text-decoration: underline !important;
-            }
-            
-            .contact-item a {
-                color: white !important;
-            }
+
+        .project-title, .experience-title, .education-title {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
+
+        .project-title i, .experience-title i, .education-title i {
+            color: var(--secondary-color);
+        }
+
+        .project-description, .experience-description, .education-description {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .tools {
+            font-style: italic;
+            color: #7f8c8d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .interests-grid, .skills-personal {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .interest-item, .personal-skill {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .interest-item:hover, .personal-skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .interest-item h4, .personal-skill h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .interest-item p, .personal-skill p {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .achievement {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #27ae60;
+            transition: var(--transition);
+        }
+
+        .achievement:hover {
+            background: #d1ecf1;
+        }
+
+        .achievement ul {
+            margin-left: 20px;
+        }
+
+        .company-context {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .company-context:hover {
+            background: #e9ecef;
+        }
+
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            .container {
-                border-radius: 10px;
-            }
-            
-            header {
-                padding: 30px 20px;
-            }
-            
-            .profile-info h1 {
-                font-size: 2.2rem;
-            }
-            
-            .specialty {
-                font-size: 1.2rem;
+            .header h1 {
+                font-size: 2em;
             }
             
             .contact-info {
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
             }
             
-            .content {
-                padding: 25px 20px;
-            }
-            
-            .education-grid, .projects-grid, .skills-container {
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
             
-            .buttons {
-                flex-direction: column;
-                align-items: center;
+            .interests-grid, .skills-personal {
+                grid-template-columns: 1fr;
             }
             
-            .language-controls {
+            .header-buttons {
                 flex-direction: column;
-                align-items: center;
+                gap: 10px;
             }
+            
+            .language-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            .header-buttons {
+                display: none;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #7f8c8d;
+            border-top: 1px solid #ecf0f1;
         }
     </style>
 </head>
 <body>
-    <!-- Notificación -->
-    <div class="notification" id="notification">
-        <span id="notificationText"></span>
-    </div>
-    
-    <div class="container" id="cv-content">
-        <div class="language-controls">
-            <button id="btn-es" class="btn btn-primary">
-                <i class="fas fa-language"></i> Español
-            </button>
-            <button id="btn-en" class="btn btn-primary">
-                <i class="fas fa-language"></i> English
-            </button>
-        </div>
-        
-        <header>
-            <div class="profile-info">
-                <h1>WENDY SALOME ESTRADA</h1>
-                <p class="specialty" id="specialty-text">Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</p>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:salomewendy524@outlook.com">salomewendy524@outlook.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:+525569030109">55 6903 0109</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/WendySE20" target="_blank">github.com/WendySE20</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/wendy-salome-estrada-644227383/" target="_blank">LinkedIn</a>
-                </div>
-            </div>
-        </header>
-        
-        <div class="content">
-            <section class="profile">
-                <h2><i class="fas fa-user"></i> <span id="profile-title">Perfil Profesional</span></h2>
-                <p class="profile-text" id="profile-text">Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
-            </section>
-            
-            <section class="education">
-                <h2><i class="fas fa-graduation-cap"></i> <span id="education-title">Educación</span></h2>
-                <div class="education-grid">
-                    <div class="education-item">
-                        <h3 id="education-item-1-title">Técnica en Programación</h3>
-                        <span class="date" id="education-item-1-date">Título profesional</span>
-                        <p id="education-item-1-text">Especialización en fundamentos de programación y desarrollo de aplicaciones.</p>
-                    </div>
-                    <div class="education-item">
-                        <h3 id="education-item-2-title">TSU en Desarrollo de Software Multiplataforma</h3>
-                        <span class="date" id="education-item-2-date">Título profesional</span>
-                        <p id="education-item-2-text">Formación en desarrollo de software para múltiples plataformas y dispositivos.</p>
-                    </div>
-                    <div class="education-item">
-                        <h3 id="education-item-3-title">Ingeniería en Desarrollo y Gestión de Software</h3>
-                        <span class="date" id="education-item-3-date">Título en trámite</span>
-                        <p id="education-item-3-text">Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="skills">
-                <h2><i class="fas fa-code"></i> <span id="skills-title">Habilidades Técnicas</span></h2>
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3 id="skills-category-1-title">Lenguajes de Programación</h3>
-                        <div class="skills-list">
-                            <span class="skill">HTML5</span>
-                            <span class="skill">CSS3</span>
-                            <span class="skill">JavaScript</span>
-                            <span class="skill">PHP</span>
-                            <span class="skill">C#</span>
-                            <span class="skill">Dart</span>
-                            <span class="skill">Java</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 id="skills-category-2-title">Frameworks & Librerías</h3>
-                        <div class="skills-list">
-                            <span class="skill">Laravel</span>
-                            <span class="skill">Node.js</span>
-                            <span class="skill">Express.js</span>
-                            <span class="skill">Flutter</span>
-                            <span class="skill">React</span>
-                            <span class="skill">Vue.js</span>
-                            <span class="skill">Bootstrap</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 id="skills-category-3-title">Bases de Datos</h3>
-                        <div class="skills-list">
-                            <span class="skill">MySQL</span>
-                            <span class="skill">MongoDB</span>
-                            <span class="skill">Firebase</span>
-                            <span class="skill">SQLite</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3 id="skills-category-4-title">Herramientas & Tecnologías</h3>
-                        <div class="skills-list">
-                            <span class="skill">Git & GitHub</span>
-                            <span class="skill">APIs REST</span>
-                            <span class="skill">Postman</span>
-                            <span class="skill">Jira</span>
-                            <span class="skill">Docker</span>
-                            <span class="skill">Unity</span>
-                            <span class="skill">ngrok</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="projects">
-                <h2><i class="fas fa-briefcase"></i> <span id="projects-title">Proyectos Destacados</span></h2>
-                <div class="projects-grid">
-                    <div class="project-item">
-                        <h3 id="project-item-1-title">Integración Jira ⇄ ITSM</h3>
-                        <p id="project-item-1-text">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</p>
-                        <p><strong id="project-item-1-tools-label">Herramientas:</strong> Jira, ngrok, Postman, APIs REST, Node.js/Express.</p>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3 id="project-item-2-title">Aplicación móvil tipo Uber para personas con discapacidad</h3>
-                        <p id="project-item-2-text">Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</p>
-                        <p><strong id="project-item-2-tools-label">Herramientas:</strong> Flutter, Firebase (Auth & Realtime/Firestore).</p>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3 id="project-item-3-title">Sistema de Gestión de Inventarios Inteligente</h3>
-                        <p id="project-item-3-text">Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</p>
-                        <p><strong id="project-item-3-tools-label">Herramientas:</strong> Laravel, MySQL, JavaScript, APIs REST, Chart.js.</p>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3 id="project-item-4-title">Sistema de Monitoreo de Servidores en Tiempo Real</h3>
-                        <p id="project-item-4-text">Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</p>
-                        <p><strong id="project-item-4-tools-label">Herramientas:</strong> Node.js, Express, Socket.io, React, MongoDB, Docker.</p>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3 id="project-item-5-title">Generación de sistema web/Citas médicas</h3>
-                        <p id="project-item-5-text">Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</p>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3 id="project-item-6-title">Portal inmobiliario (Proyecto escolar)</h3>
-                        <p id="project-item-6-text">Portal con CRUD de inmuebles y panel administrativo.</p>
-                        <p><strong id="project-item-6-tools-label">Herramientas:</strong> Laravel 8, PHP, MySQL.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="interests-section">
-                <h2><i class="fas fa-heart"></i> <span id="interests-title">Intereses</span></h2>
-                <div class="interests">
-                    <div class="interest">
-                        <i class="fas fa-music"></i>
-                        <span id="interest-1">Música</span>
-                    </div>
-                    <div class="interest">
-                        <i class="fas fa-book"></i>
-                        <span id="interest-2">Lectura</span>
-                    </div>
-                    <div class="interest">
-                        <i class="fas fa-laptop-code"></i>
-                        <span id="interest-3">Tecnología</span>
-                    </div>
-                    <div class="interest">
-                        <i class="fas fa-gamepad"></i>
-                        <span id="interest-4">Videojuegos</span>
-                    </div>
-                    <div class="interest">
-                        <i class="fas fa-paint-brush"></i>
-                        <span id="interest-5">Diseño</span>
-                    </div>
-                    <div class="interest">
-                        <i class="fas fa-robot"></i>
-                        <span id="interest-6">Inteligencia Artificial</span>
-                    </div>
-                </div>
-            </section>
-            
-            <div class="buttons">
-                <button id="btn-print" class="btn btn-primary">
-                    <i class="fas fa-print"></i> <span id="print-button-text">Imprimir</span>
+    <div class="container">
+        <div class="header-buttons">
+            <div class="language-buttons">
+                <button class="btn btn-active" id="btn-es">
+                    <i class="fas fa-flag"></i> Español
                 </button>
-                <a href="https://github.com/WendySE20" class="btn btn-secondary" target="_blank">
-                    <i class="fab fa-github"></i> Ver GitHub
-                </a>
+                <button class="btn" id="btn-en">
+                    <i class="fas fa-flag-usa"></i> English
+                </button>
             </div>
+            <button class="btn btn-print" id="btn-print">
+                <i class="fas fa-print"></i> <span class="print-text">Imprimir/PDF</span>
+            </button>
         </div>
-        
-        <footer>
-            <p>© 2023 Wendy Salome Estrada - <span id="footer-text">Desarrolladora Full Stack</span></p>
+
+        <!-- CONTENIDO EN ESPAÑOL -->
+        <div id="content-es">
+            <header class="header">
+                <h1>WENDY SALOMÉ ESTRADA</h1>
+                <h2>Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:salomewendy524@outlook.com">salomewendy524@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:5569030109">55 6903 0109</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/WendySE20" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </header>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-user"></i> PERFIL PROFESIONAL</h3>
+                <p>Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.</p>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCACIÓN</h3>
+                
+                <div class="education-item">
+                    <div class="education-title"><i class="fas fa-laptop-code"></i> Ingeniería en Desarrollo y Gestión de Software</div>
+                    <div class="education-description">Título en trámite | Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title"><i class="fas fa-code"></i> TSU en Desarrollo de Software Multiplataforma</div>
+                    <div class="education-description">Título profesional | Formación en desarrollo de software para múltiples plataformas y dispositivos.</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title"><i class="fas fa-cogs"></i> Técnica en Programación</div>
+                    <div class="education-description">Título profesional | Especialización en fundamentos de programación y desarrollo de aplicaciones.</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-code"></i> HABILIDADES TÉCNICAS</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Lenguajes de Programación</h4>
+                        <ul class="skill-list">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                            <li>C#</li>
+                            <li>Dart</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frameworks & Librerías</h4>
+                        <ul class="skill-list">
+                            <li>Laravel</li>
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>Flutter</li>
+                            <li>React</li>
+                            <li>Vue.js</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Bases de Datos</h4>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>MongoDB</li>
+                            <li>Firebase</li>
+                            <li>SQLite</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Herramientas & Tecnologías</h4>
+                        <ul class="skill-list">
+                            <li>Git & GitHub</li>
+                            <li>APIs REST</li>
+                            <li>Postman</li>
+                            <li>Jira</li>
+                            <li>Docker</li>
+                            <li>Unity</li>
+                            <li>ngrok</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-project-diagram"></i> PROYECTOS DESTACADOS</h3>
+                
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-sync-alt"></i> Integración Jira ⇄ ITSM</div>
+                    <div class="project-description">Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Jira, ngrok, Postman, APIs REST, Node.js/Express</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-mobile-alt"></i> Aplicación móvil tipo Uber para personas con discapacidad</div>
+                    <div class="project-description">Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Flutter, Firebase (Auth & Realtime/Firestore)</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-warehouse"></i> Sistema de Gestión de Inventarios Inteligente</div>
+                    <div class="project-description">Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Laravel, MySQL, JavaScript, APIs REST, Chart.js</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-server"></i> Sistema de Monitoreo de Servidores en Tiempo Real</div>
+                    <div class="project-description">Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Node.js, Express, Socket.io, React, MongoDB, Docker</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-calendar-check"></i> Generación de sistema web/Citas médicas</div>
+                    <div class="project-description">Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-home"></i> Portal inmobiliario (Proyecto escolar)</div>
+                    <div class="project-description">Portal con CRUD de inmuebles y panel administrativo.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Herramientas: Laravel 8, PHP, MySQL</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-users"></i> HABILIDADES PERSONALES</h3>
+                <div class="skills-personal">
+                    <div class="personal-skill">
+                        <h4>🤝 Liderazgo</h4>
+                        <p>Capacidad para liderar proyectos y coordinar equipos de trabajo</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>💡 Resolución de Problemas</h4>
+                        <p>Habilidad para analizar desafíos complejos y proponer soluciones efectivas</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>🚀 Proactividad</h4>
+                        <p>Iniciativa para anticipar necesidades y proponer mejoras continuas</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>⏰ Gestión de Proyectos</h4>
+                        <p>Experiencia en planificación, ejecución y seguimiento de proyectos tecnológicos</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-heart"></i> INTERESES</h3>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <h4>🎵 Música</h4>
+                        <p>Exploración de diferentes géneros musicales y composición</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>📚 Lectura</h4>
+                        <p>Interés en literatura técnica y de desarrollo personal</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🚀 Tecnología</h4>
+                        <p>Seguimiento de tendencias tecnológicas y asistencia a eventos del sector</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🎮 Videojuegos</h4>
+                        <p>Desarrollo y análisis de mecánicas de juego</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🎨 Diseño</h4>
+                        <p>Creación de interfaces y experiencias de usuario atractivas</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🤖 Inteligencia Artificial</h4>
+                        <p>Exploración de aplicaciones prácticas de IA en desarrollo de software</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTENIDO EN INGLÉS -->
+        <div id="content-en" class="hidden">
+            <header class="header">
+                <h1>WENDY SALOMÉ ESTRADA</h1>
+                <h2>Full Stack Developer with Experience in Mobile Applications and Project Management</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:salomewendy524@outlook.com">salomewendy524@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:5569030109">55 6903 0109</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/WendySE20" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </header>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-user"></i> PROFESSIONAL PROFILE</h3>
+                <p>Full Stack Developer with solid technical background and experience in web applications, mobile apps, and APIs development. I have led academic and personal projects that demonstrate my ability to design complete solutions, from conception to implementation. Specialized in creating efficient integrations between systems and database management. Recognized for my proactivity, fast learning ability, and adaptation to new technologies.</p>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
+                
+                <div class="education-item">
+                    <div class="education-title"><i class="fas fa-laptop-code"></i> Software Development and Management Engineering</div>
+                    <div class="education-description">Degree in process | Complete training in software engineering with focus on development and management of technology projects.</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title"><i class="fas fa-code"></i> TSU in Multiplatform Software Development</div>
+                    <div class="education-description">Professional degree | Training in software development for multiple platforms and devices.</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title"><i class="fas fa-cogs"></i> Programming Technician</div>
+                    <div class="education-description">Professional degree | Specialization in programming fundamentals and application development.</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-code"></i> TECHNICAL SKILLS</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <ul class="skill-list">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                            <li>C#</li>
+                            <li>Dart</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frameworks & Libraries</h4>
+                        <ul class="skill-list">
+                            <li>Laravel</li>
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>Flutter</li>
+                            <li>React</li>
+                            <li>Vue.js</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Databases</h4>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>MongoDB</li>
+                            <li>Firebase</li>
+                            <li>SQLite</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <ul class="skill-list">
+                            <li>Git & GitHub</li>
+                            <li>REST APIs</li>
+                            <li>Postman</li>
+                            <li>Jira</li>
+                            <li>Docker</li>
+                            <li>Unity</li>
+                            <li>ngrok</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-project-diagram"></i> FEATURED PROJECTS</h3>
+                
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-sync-alt"></i> Jira ⇄ ITSM Integration</div>
+                    <div class="project-description">Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with duplicate handling.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Jira, ngrok, Postman, REST APIs, Node.js/Express</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-mobile-alt"></i> Uber-like Mobile App for People with Disabilities</div>
+                    <div class="project-description">Development of a mobile app with geolocation, user registration and real-time communication.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Flutter, Firebase (Auth & Realtime/Firestore)</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-warehouse"></i> Smart Inventory Management System</div>
+                    <div class="project-description">Development of a comprehensive inventory management system with automatic alerts, predictive reports and integration with point of sale systems.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Laravel, MySQL, JavaScript, REST APIs, Chart.js</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-server"></i> Real-Time Server Monitoring System</div>
+                    <div class="project-description">Development of a real-time monitoring dashboard for servers and web services. Includes alerts, performance metrics and automatic reports.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Node.js, Express, Socket.io, React, MongoDB, Docker</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-calendar-check"></i> Web System/Medical Appointments</div>
+                    <div class="project-description">Online store for medical appointments with frontend (HTML/CSS/JS) and backend (PHP + MySQL). Integrated user management and booking systems with database.</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title"><i class="fas fa-home"></i> Real Estate Portal (School Project)</div>
+                    <div class="project-description">Portal with property CRUD and administrative panel.</div>
+                    <div class="tools"><i class="fas fa-tools"></i> Tools: Laravel 8, PHP, MySQL</div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-users"></i> PERSONAL SKILLS</h3>
+                <div class="skills-personal">
+                    <div class="personal-skill">
+                        <h4>🤝 Leadership</h4>
+                        <p>Ability to lead projects and coordinate work teams</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>💡 Problem Solving</h4>
+                        <p>Ability to analyze complex challenges and propose effective solutions</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>🚀 Proactivity</h4>
+                        <p>Initiative to anticipate needs and propose continuous improvements</p>
+                    </div>
+                    <div class="personal-skill">
+                        <h4>⏰ Project Management</h4>
+                        <p>Experience in planning, executing and monitoring technology projects</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h3 class="section-title"><i class="fas fa-heart"></i> INTERESTS</h3>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <h4>🎵 Music</h4>
+                        <p>Exploring different music genres and composition</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>📚 Reading</h4>
+                        <p>Interest in technical literature and personal development</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🚀 Technology</h4>
+                        <p>Following technology trends and attending sector events</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🎮 Video Games</h4>
+                        <p>Development and analysis of game mechanics</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🎨 Design</h4>
+                        <p>Creating attractive interfaces and user experiences</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4>🤖 Artificial Intelligence</h4>
+                        <p>Exploring practical AI applications in software development</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>© 2023 Wendy Salome Estrada - Desarrolladora Full Stack</p>
+            <p><a href="https://github.com/WendySE20" target="_blank" style="color: var(--secondary-color); text-decoration: none;">Ver GitHub</a></p>
         </footer>
     </div>
 
     <script>
-        // ===== CONFIGURACIÓN DE TRADUCCIÓN =====
-        const translations = {
-            'es': {
-                'specialty-text': 'Desarrolladora Full Stack con Experiencia en Aplicaciones Móviles y Gestión de Proyectos',
-                'profile-title': 'Perfil Profesional',
-                'profile-text': 'Desarrolladora Full Stack con sólida formación técnica y experiencia en desarrollo de aplicaciones web, móviles y APIs. He liderado proyectos académicos y personales que demuestran mi capacidad para diseñar soluciones completas, desde la concepción hasta la implementación. Especializada en crear integraciones eficientes entre sistemas y en la gestión de bases de datos. Reconocida por mi proactividad, rápida capacidad de aprendizaje y adaptación a nuevas tecnologías.',
-                'education-title': 'Educación',
-                'education-item-1-title': 'Técnica en Programación',
-                'education-item-1-date': 'Título profesional',
-                'education-item-1-text': 'Especialización en fundamentos de programación y desarrollo de aplicaciones.',
-                'education-item-2-title': 'TSU en Desarrollo de Software Multiplataforma',
-                'education-item-2-date': 'Título profesional',
-                'education-item-2-text': 'Formación en desarrollo de software para múltiples plataformas y dispositivos.',
-                'education-item-3-title': 'Ingeniería en Desarrollo y Gestión de Software',
-                'education-item-3-date': 'Título en trámite',
-                'education-item-3-text': 'Formación completa en ingeniería de software con enfoque en desarrollo y gestión de proyectos tecnológicos.',
-                'skills-title': 'Habilidades Técnicas',
-                'skills-category-1-title': 'Lenguajes de Programación',
-                'skills-category-2-title': 'Frameworks & Librerías',
-                'skills-category-3-title': 'Bases de Datos',
-                'skills-category-4-title': 'Herramientas & Tecnologías',
-                'projects-title': 'Proyectos Destacados',
-                'project-item-1-title': 'Integración Jira ⇄ ITSM',
-                'project-item-1-text': 'Integración bidireccional entre herramienta de administración de proyectos y módulo de gestión de cambios de ITSM. Sincronización de RFCs con manejo de duplicados.',
-                'project-item-1-tools-label': 'Herramientas:',
-                'project-item-2-title': 'Aplicación móvil tipo Uber para personas con discapacidad',
-                'project-item-2-text': 'Desarrollo de app móvil con geolocalización, registro de usuarios y comunicación en tiempo real.',
-                'project-item-2-tools-label': 'Herramientas:',
-                'project-item-3-title': 'Sistema de Gestión de Inventarios Inteligente',
-                'project-item-3-text': 'Desarrollo de un sistema integral de gestión de inventarios con alertas automáticas, reportes predictivos y integración con sistemas de punto de venta.',
-                'project-item-3-tools-label': 'Herramientas:',
-                'project-item-4-title': 'Sistema de Monitoreo de Servidores en Tiempo Real',
-                'project-item-4-text': 'Desarrollo de un dashboard de monitoreo en tiempo real para servidores y servicios web. Incluye alertas, métricas de rendimiento y reportes automáticos.',
-                'project-item-4-tools-label': 'Herramientas:',
-                'project-item-5-title': 'Generación de sistema web/Citas médicas',
-                'project-item-5-text': 'Tienda en línea para citas médicas con frontend (HTML/CSS/JS) y backend (PHP + MySQL). Sistemas de gestión de usuarios y reservas integradas con base de datos.',
-                'project-item-6-title': 'Portal inmobiliario (Proyecto escolar)',
-                'project-item-6-text': 'Portal con CRUD de inmuebles y panel administrativo.',
-                'project-item-6-tools-label': 'Herramientas:',
-                'interests-title': 'Intereses',
-                'interest-1': 'Música',
-                'interest-2': 'Lectura',
-                'interest-3': 'Tecnología',
-                'interest-4': 'Videojuegos',
-                'interest-5': 'Diseño',
-                'interest-6': 'Inteligencia Artificial',
-                'print-button-text': 'Imprimir',
-                'footer-text': 'Desarrolladora Full Stack'
-            },
-            'en': {
-                'specialty-text': 'Full Stack Developer with Experience in Mobile Applications and Project Management',
-                'profile-title': 'Professional Profile',
-                'profile-text': 'Full Stack Developer with solid technical training and experience in web, mobile and API development. I have led academic and personal projects that demonstrate my ability to design complete solutions, from conception to implementation. Specialized in creating efficient integrations between systems and database management. Recognized for my proactivity, fast learning ability and adaptation to new technologies.',
-                'education-title': 'Education',
-                'education-item-1-title': 'Programming Technician',
-                'education-item-1-date': 'Professional degree',
-                'education-item-1-text': 'Specialization in programming fundamentals and application development.',
-                'education-item-2-title': 'TSU in Multiplatform Software Development',
-                'education-item-2-date': 'Professional degree',
-                'education-item-2-text': 'Training in software development for multiple platforms and devices.',
-                'education-item-3-title': 'Engineering in Software Development and Management',
-                'education-item-3-date': 'Degree in process',
-                'education-item-3-text': 'Complete training in software engineering with a focus on development and management of technological projects.',
-                'skills-title': 'Technical Skills',
-                'skills-category-1-title': 'Programming Languages',
-                'skills-category-2-title': 'Frameworks & Libraries',
-                'skills-category-3-title': 'Databases',
-                'skills-category-4-title': 'Tools & Technologies',
-                'projects-title': 'Featured Projects',
-                'project-item-1-title': 'Jira ⇄ ITSM Integration',
-                'project-item-1-text': 'Bidirectional integration between project management tool and ITSM change management module. RFC synchronization with duplicate handling.',
-                'project-item-1-tools-label': 'Tools:',
-                'project-item-2-title': 'Uber-type mobile application for people with disabilities',
-                'project-item-2-text': 'Mobile app development with geolocation, user registration and real-time communication.',
-                'project-item-2-tools-label': 'Tools:',
-                'project-item-3-title': 'Smart Inventory Management System',
-                'project-item-3-text': 'Development of a comprehensive inventory management system with automatic alerts, predictive reports and integration with point-of-sale systems.',
-                'project-item-3-tools-label': 'Tools:',
-                'project-item-4-title': 'Real-Time Server Monitoring System',
-                'project-item-4-text': 'Development of a real-time monitoring dashboard for servers and web services. Includes alerts, performance metrics and automatic reports.',
-                'project-item-4-tools-label': 'Tools:',
-                'project-item-5-title': 'Web system generation/Medical appointments',
-                'project-item-5-text': 'Online store for medical appointments with frontend (HTML/CSS/JS) and backend (PHP + MySQL). Integrated user and reservation management systems with database.',
-                'project-item-6-title': 'Real estate portal (School project)',
-                'project-item-6-text': 'Portal with CRUD of properties and administrative panel.',
-                'project-item-6-tools-label': 'Tools:',
-                'interests-title': 'Interests',
-                'interest-1': 'Music',
-                'interest-2': 'Reading',
-                'interest-3': 'Technology',
-                'interest-4': 'Video Games',
-                'interest-5': 'Design',
-                'interest-6': 'Artificial Intelligence',
-                'print-button-text': 'Print',
-                'footer-text': 'Full Stack Developer'
-            }
-        };
-
-        // Función para cambiar el idioma
-        function changeLanguage(lang) {
-            // Almacenar el idioma seleccionado
-            localStorage.setItem('selectedLanguage', lang);
-            
-            // Actualizar todos los textos
-            for (const [key, value] of Object.entries(translations[lang])) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = value;
-                }
-            }
-            
-            // Mostrar notificación
-            showNotification(lang === 'es' ? 'Idioma cambiado a Español' : 'Language changed to English');
-        }
-
-        // Función para mostrar notificación
-        function showNotification(message, duration = 3000) {
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notificationText');
-            
-            notificationText.textContent = message;
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, duration);
-        }
-
-        // Función para imprimir directamente
-        function printCV() {
-            // Ocultar controles que no deben aparecer en la impresión
-            const languageControls = document.querySelector('.language-controls');
-            const buttons = document.querySelector('.buttons');
-            const originalLanguageDisplay = languageControls.style.display;
-            const originalButtonsDisplay = buttons.style.display;
-            
-            languageControls.style.display = 'none';
-            buttons.style.display = 'none';
-            
-            // Imprimir
-            window.print();
-            
-            // Restaurar controles
-            setTimeout(() => {
-                languageControls.style.display = originalLanguageDisplay;
-                buttons.style.display = originalButtonsDisplay;
-            }, 500);
-        }
-
-        // Event Listeners
-        document.getElementById('btn-print').addEventListener('click', printCV);
-
-        // Botones de idioma
+        // Funcionalidad de idiomas
         document.getElementById('btn-es').addEventListener('click', function() {
-            changeLanguage('es');
-        });
-        
-        document.getElementById('btn-en').addEventListener('click', function() {
-            changeLanguage('en');
+            document.getElementById('content-es').classList.remove('hidden');
+            document.getElementById('content-en').classList.add('hidden');
+            document.getElementById('btn-es').classList.add('btn-active');
+            document.getElementById('btn-en').classList.remove('btn-active');
+            document.querySelector('.print-text').textContent = 'Imprimir/PDF';
+            document.title = 'Wendy Salomé Estrada - CV';
+            document.querySelector('footer p:first-child').textContent = '© 2023 Wendy Salome Estrada - Desarrolladora Full Stack';
         });
 
-        // Cargar idioma guardado al iniciar
+        document.getElementById('btn-en').addEventListener('click', function() {
+            document.getElementById('content-en').classList.remove('hidden');
+            document.getElementById('content-es').classList.add('hidden');
+            document.getElementById('btn-en').classList.add('btn-active');
+            document.getElementById('btn-es').classList.remove('btn-active');
+            document.querySelector('.print-text').textContent = 'Print/PDF';
+            document.title = 'Wendy Salomé Estrada - Resume';
+            document.querySelector('footer p:first-child').textContent = '© 2023 Wendy Salome Estrada - Full Stack Developer';
+        });
+
+        // Funcionalidad de impresión
+        document.getElementById('btn-print').addEventListener('click', function() {
+            window.print();
+        });
+
+        // Efectos de hover mejorados
         document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'es';
-            changeLanguage(savedLanguage);
-            
-            const items = document.querySelectorAll('.education-item, .project-item, .skill-category');
-            items.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
-                item.style.animation = 'fadeIn 0.6s ease forwards';
-                item.style.opacity = '0';
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                section.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
         });
     </script>
