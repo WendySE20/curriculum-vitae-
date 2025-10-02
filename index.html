@@ -405,13 +405,11 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
-            
             .left-column {
                 order: 2;
                 border-right: none;
                 border-top: 1px solid #e9ecef;
             }
-            
             .right-column {
                 order: 1;
             }
@@ -421,70 +419,44 @@
             .profile-header h1 {
                 font-size: 2.2em;
             }
-            
             .profile-header h2 {
                 font-size: 1.2em;
             }
-            
             .contact-info {
                 flex-direction: column;
                 align-items: center;
             }
-            
             .header-buttons {
                 flex-direction: column;
                 gap: 15px;
             }
-            
             .language-buttons {
                 justify-content: center;
             }
-            
             .languages {
                 grid-template-columns: 1fr;
             }
-            
             .interests-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media print {
-            body {
-                background: white !important;
-            }
-            
-            .main-card {
-                box-shadow: none !important;
-            }
-            
-            .header-buttons {
-                display: none;
-            }
-            
+            body { background: white !important; }
+            .main-card { box-shadow: none !important; }
+            .header-buttons { display: none; }
             .project-item, .experience-item, .skill-category {
                 box-shadow: none !important;
                 border: 1px solid #ddd !important;
             }
         }
 
-        .hidden {
-            display: none;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
+        .hidden { display: none; }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
 
         @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -497,7 +469,7 @@
                         <i class="fas fa-flag"></i> Español
                     </button>
                     <button class="btn" id="btn-en">
-                        <i class="fas fa-flag-usa"></i> English
+                        <i class="fas fa-flag"></i> English
                     </button>
                 </div>
                 <button class="btn btn-print" id="btn-print">
@@ -507,7 +479,7 @@
 
             <div class="profile-header">
                 <h1>WENDY SALOME ESTRADA</h1>
-                <h2>Ingeniera en Desarrollo y Gestión de Software | Full-Stack</h2>
+                <h2 class="headline">Ingeniera en Desarrollo y Gestión de Software | Full-Stack</h2>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -519,7 +491,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <a href="#" target="_blank">LinkedIn</a>
+                        <a class="link-linkedin" href="#" target="_blank">LinkedIn</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-github"></i>
@@ -529,9 +501,8 @@
             </div>
 
             <div class="content-grid">
-                <!-- COLUMNA IZQUIERDA -->
+                <!-- COLUMNA IZQUIERDA - ESPAÑOL -->
                 <div class="left-column">
-                    <!-- CONTENIDO EN ESPAÑOL -->
                     <div id="content-es">
                         <section class="section fade-in">
                             <h3 class="section-title"><i class="fas fa-user"></i> PERFIL PROFESIONAL</h3>
@@ -588,17 +559,14 @@
 
                         <section class="section fade-in">
                             <h3 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCACIÓN</h3>
-                            
                             <div class="project-item">
                                 <div class="project-title"><i class="fas fa-university"></i> Ingeniería en Desarrollo y Gestión de Software</div>
                                 <div class="project-description">Título en trámite - Formación completa en ingeniería de software con enfoque en desarrollo full-stack, arquitecturas escalables y gestión de proyectos tecnológicos.</div>
                             </div>
-                            
                             <div class="project-item">
                                 <div class="project-title"><i class="fas fa-code"></i> TSU en Desarrollo de Software Multiplataforma</div>
                                 <div class="project-description">Título profesional - Especialización en desarrollo para múltiples plataformas y dispositivos, con base sólida en patrones de diseño.</div>
                             </div>
-                            
                             <div class="project-item">
                                 <div class="project-title"><i class="fas fa-laptop"></i> Técnica en Programación</div>
                                 <div class="project-description">Título profesional - Formación en fundamentos de programación, bases de datos, desarrollo de aplicaciones y buenas prácticas de codificación.</div>
@@ -642,15 +610,117 @@
                         </section>
                     </div>
 
-                    <!-- CONTENIDO EN INGLÉS -->
+                    <!-- COLUMNA IZQUIERDA - INGLÉS -->
                     <div id="content-en" class="hidden">
-                        <!-- Contenido en inglés similar -->
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-user"></i> PROFESSIONAL SUMMARY</h3>
+                            <p>Software Engineering graduate with hands-on full-stack experience. Focused on building innovative solutions using scalable architectures and development best practices. Committed to continuous learning and technical excellence.</p>
+                        </section>
+
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-code"></i> TECHNICAL SKILLS</h3>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-laptop-code"></i> Frontend</h4>
+                                    <ul class="skill-list">
+                                        <li>React</li>
+                                        <li>Flutter</li>
+                                        <li>Vue.js</li>
+                                        <li>HTML5/CSS3</li>
+                                        <li>JavaScript ES6+</li>
+                                        <li>Bootstrap</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-server"></i> Backend</h4>
+                                    <ul class="skill-list">
+                                        <li>Node.js</li>
+                                        <li>Express.js</li>
+                                        <li>Laravel</li>
+                                        <li>PHP</li>
+                                        <li>REST APIs</li>
+                                        <li>WebSockets</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-database"></i> Databases</h4>
+                                    <ul class="skill-list">
+                                        <li>MySQL</li>
+                                        <li>MongoDB</li>
+                                        <li>Firebase</li>
+                                        <li>SQLite</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-tools"></i> Tools</h4>
+                                    <ul class="skill-list">
+                                        <li>Git & GitHub</li>
+                                        <li>Docker</li>
+                                        <li>Postman</li>
+                                        <li>Jira</li>
+                                        <li>Figma</li>
+                                        <li>VS Code</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
+                            <div class="project-item">
+                                <div class="project-title"><i class="fas fa-university"></i> B.Eng. in Software Development and Management</div>
+                                <div class="project-description">Degree in progress — Comprehensive training in software engineering with focus on full-stack development, scalable architectures, and technology project management.</div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-title"><i class="fas fa-code"></i> University Technician in Multiplatform Software Development (TSU)</div>
+                                <div class="project-description">Professional degree — Specialization in development for multiple platforms and devices, with a solid foundation in design patterns.</div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-title"><i class="fas fa-laptop"></i> Technical Degree in Programming</div>
+                                <div class="project-description">Professional degree — Training in programming fundamentals, databases, application development, and coding best practices.</div>
+                            </div>
+                        </section>
+
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-language"></i> LANGUAGES</h3>
+                            <div class="languages">
+                                <div class="language-item">
+                                    <div class="language-name">Spanish</div>
+                                    <div class="language-level">Native</div>
+                                </div>
+                                <div class="language-item">
+                                    <div class="language-name">English</div>
+                                    <div class="language-level">Intermediate (B1/B2)</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-heart"></i> INTERESTS</h3>
+                            <div class="interests-grid">
+                                <div class="interest-item">
+                                    <h4>🎵 Digital Music</h4>
+                                    <p>Music production and composition</p>
+                                </div>
+                                <div class="interest-item">
+                                    <h4>🎮 Game Development</h4>
+                                    <p>Game design with Unity</p>
+                                </div>
+                                <div class="interest-item">
+                                    <h4>📚 Tech Trends</h4>
+                                    <p>Emerging technology trends</p>
+                                </div>
+                                <div class="interest-item">
+                                    <h4>🎨 UI/UX Design</h4>
+                                    <p>Creative interface design</p>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
 
-                <!-- COLUMNA DERECHA -->
+                <!-- COLUMNA DERECHA - ESPAÑOL -->
                 <div class="right-column">
-                    <!-- CONTENIDO EN ESPAÑOL -->
                     <div id="content-es-right">
                         <section class="section fade-in">
                             <h3 class="section-title"><i class="fas fa-briefcase"></i> EXPERIENCIA PROFESIONAL</h3>
@@ -677,7 +747,6 @@
 
                         <section class="section fade-in">
                             <h3 class="section-title"><i class="fas fa-project-diagram"></i> PROYECTOS DESTACADOS</h3>
-                            
                             <div class="project-item">
                                 <div class="project-title"><i class="fas fa-mobile-alt"></i> Aplicación para Personas con Discapacidad</div>
                                 <div class="project-description">Desarrollo completo de app móvil tipo Uber especializada, implementando geolocalización avanzada, autenticación segura con Firebase y base de datos en tiempo real.</div>
@@ -720,9 +789,73 @@
                         </section>
                     </div>
 
-                    <!-- CONTENIDO EN INGLÉS -->
+                    <!-- COLUMNA DERECHA - INGLÉS -->
                     <div id="content-en-right" class="hidden">
-                        <!-- Contenido en inglés similar -->
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h3>
+                            <div class="experience-item">
+                                <div class="company-context">
+                                    <strong>Bigg Practices</strong> — Professional Internship | Company specialized in ITSM solutions
+                                </div>
+                                <div class="experience-title"><i class="fas fa-laptop-code"></i> Full-Stack Developer</div>
+                                <div class="experience-description">
+                                    <p><strong>Jira ⇄ ITSM Integration:</strong> Led the bidirectional integration to automatically sync RFCs across systems, implementing smart duplicate handling.</p>
+                                    <p><strong>WhatsApp REST API Integration:</strong> Designed and implemented endpoints to automate notifications within the ITSM workflow.</p>
+                                </div>
+                                <div class="achievement">
+                                    <h4><i class="fas fa-trophy"></i> Key Achievements:</h4>
+                                    <ul>
+                                        <li>Reduced processing time by 40% through automation</li>
+                                        <li>Decreased duplication errors by 85% with smart validations</li>
+                                        <li>Delivered complete technical documentation for maintainability</li>
+                                    </ul>
+                                </div>
+                                <div class="tools"><i class="fas fa-tools"></i> Node.js, Express, Jira API, REST APIs, Postman, ngrok</div>
+                            </div>
+                        </section>
+
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-project-diagram"></i> FEATURED PROJECTS</h3>
+                            <div class="project-item">
+                                <div class="project-title"><i class="fas fa-mobile-alt"></i> App for People with Disabilities</div>
+                                <div class="project-description">End-to-end development of a specialized Uber-like mobile app with advanced geolocation, secure Firebase authentication, and real-time database.</div>
+                                <div class="tools"><i class="fas fa-tools"></i> Flutter, Firebase Auth, Firestore, Google Maps API</div>
+                            </div>
+
+                            <div class="project-item">
+                                <div class="project-title"><i class="fas fa-warehouse"></i> Intelligent Inventory System</div>
+                                <div class="project-description">Comprehensive web system with predictive alerts, interactive dashboard, and full POS integration. Includes automated reporting.</div>
+                                <div class="tools"><i class="fas fa-tools"></i> Laravel, MySQL, JavaScript, Chart.js, Bootstrap</div>
+                            </div>
+
+                            <div class="project-item">
+                                <div class="project-title"><i class="fas fa-server"></i> Real-Time Server Monitoring</div>
+                                <div class="project-description">Monitoring dashboard using WebSockets for real-time performance metrics, early-warning alerts, and scheduled reports.</div>
+                                <div class="tools"><i class="fas fa-tools"></i> Node.js, Express, Socket.io, React, MongoDB</div>
+                            </div>
+                        </section>
+
+                        <section class="section fade-in">
+                            <h3 class="section-title"><i class="fas fa-users"></i> SOFT SKILLS</h3>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-rocket"></i> Technical Leadership</h4>
+                                    <p>Ability to guide teams on complex projects and make sound technical decisions</p>
+                                </div>
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-lightbulb"></i> Problem Solving</h4>
+                                    <p>Analytical, methodical approach to identify and resolve complex technical challenges</p>
+                                </div>
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-sync-alt"></i> Adaptability</h4>
+                                    <p>Quick to learn and adapt to new technologies and methodologies</p>
+                                </div>
+                                <div class="skill-category">
+                                    <h4><i class="fas fa-clock"></i> Project Management</h4>
+                                    <p>Experience planning, executing, and tracking technology projects</p>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -730,33 +863,47 @@
     </div>
 
     <script>
-        // Funcionalidad de idiomas
+        // Cambio de idioma
         function switchLanguage(lang) {
+            const esLeft = document.getElementById('content-es');
+            const esRight = document.getElementById('content-es-right');
+            const enLeft = document.getElementById('content-en');
+            const enRight = document.getElementById('content-en-right');
+            const btnEs = document.getElementById('btn-es');
+            const btnEn = document.getElementById('btn-en');
+            const printText = document.querySelector('.print-text');
+            const headline = document.querySelector('.headline');
+            const linkedinText = document.querySelector('.link-linkedin');
+
             if (lang === 'es') {
-                document.getElementById('content-es').classList.remove('hidden');
-                document.getElementById('content-es-right').classList.remove('hidden');
-                document.getElementById('content-en').classList.add('hidden');
-                document.getElementById('content-en-right').classList.add('hidden');
-                document.getElementById('btn-es').classList.add('btn-active');
-                document.getElementById('btn-en').classList.remove('btn-active');
-                document.querySelector('.print-text').textContent = 'Imprimir/PDF';
+                esLeft.classList.remove('hidden');
+                esRight.classList.remove('hidden');
+                enLeft.classList.add('hidden');
+                enRight.classList.add('hidden');
+                btnEs.classList.add('btn-active');
+                btnEn.classList.remove('btn-active');
+                printText.textContent = 'Imprimir/PDF';
                 document.title = 'Wendy Salome Estrada - CV Profesional';
+                headline.textContent = 'Ingeniera en Desarrollo y Gestión de Software | Full-Stack';
+                linkedinText.textContent = 'LinkedIn';
             } else {
-                document.getElementById('content-en').classList.remove('hidden');
-                document.getElementById('content-en-right').classList.remove('hidden');
-                document.getElementById('content-es').classList.add('hidden');
-                document.getElementById('content-es-right').classList.add('hidden');
-                document.getElementById('btn-en').classList.add('btn-active');
-                document.getElementById('btn-es').classList.remove('btn-active');
-                document.querySelector('.print-text').textContent = 'Print/PDF';
+                enLeft.classList.remove('hidden');
+                enRight.classList.remove('hidden');
+                esLeft.classList.add('hidden');
+                esRight.classList.add('hidden');
+                btnEn.classList.add('btn-active');
+                btnEs.classList.remove('btn-active');
+                printText.textContent = 'Print/PDF';
                 document.title = 'Wendy Salome Estrada - Professional Resume';
+                headline.textContent = 'Software Development & Management Engineer | Full-Stack';
+                linkedinText.textContent = 'LinkedIn';
             }
         }
 
         document.getElementById('btn-es').addEventListener('click', () => switchLanguage('es'));
         document.getElementById('btn-en').addEventListener('click', () => switchLanguage('en'));
 
-        // Funcionalidad de impresión
+        // Botón de impresión
         document.getElementById('btn-print').addEventListener('click', function() {
             window.print();
         });
